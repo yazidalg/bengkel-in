@@ -1,16 +1,14 @@
-package main
+package sparepart
 
 import (
-	"bengkelin/common"
-	"bengkelin/features/sparepart"
 	"fmt"
 )
 
-func main() {
+func Main() {
 	var input string
 
 	// Menampilkan main menu
-	common.ShowMainMenu()
+	ShowSparepartMenu()
 
 	// Meminta input dari user untuk memilih menu
 	fmt.Print("→ Masukan kode menu : ")
@@ -22,8 +20,7 @@ func main() {
 		if input == "1" {
 			fmt.Println("Anda berada di menu 1")
 		} else if input == "2" {
-			sparepart.Main()
-			common.ShowMainMenu()
+			fmt.Println("Anda berada di menu 2")
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
 		} else {
@@ -35,5 +32,5 @@ func main() {
 		fmt.Scan(&input)
 	}
 
-	fmt.Println("Berhasil keluar aplikasi 🥳")
+	fmt.Println("Keluar dari menu sparepart 🥳")
 }
