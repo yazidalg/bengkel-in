@@ -1,15 +1,11 @@
-package main
+package customer
 
-import (
-	"bengkelin/common"
-	"bengkelin/features/customer"
-	"fmt"
-)
+import "fmt"
 
-func main() {
+func Main() {
 	var input string
-	// Menampilkan main menu
-	common.ShowMainMenu()
+
+	ShowCustomerMenu()
 
 	// Meminta input dari user untuk memilih menu
 	fmt.Print("→ Masukan kode menu : ")
@@ -22,9 +18,6 @@ func main() {
 			fmt.Println("Anda berada di menu 1")
 		} else if input == "2" {
 			fmt.Println("Anda berada di menu 2")
-		} else if input == "3" {
-			customer.Main()
-			common.ShowMainMenu()
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
@@ -33,6 +26,4 @@ func main() {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
-
-	fmt.Println("Berhasil keluar aplikasi 🥳")
 }
