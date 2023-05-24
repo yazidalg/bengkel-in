@@ -1,3 +1,3 @@
-module bengkel-in.com
+module bengkelin
 
 go 1.19
