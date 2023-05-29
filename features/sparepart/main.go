@@ -18,7 +18,8 @@ func Main() {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			fmt.Println("Anda berada di menu 1")
+			AddSparepart()
+			ShowSparepartMenu()
 		} else if input == "2" {
 			fmt.Println("Anda berada di menu 2")
 		} else if input == "3" {
