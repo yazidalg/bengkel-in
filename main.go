@@ -3,7 +3,7 @@ package main
 import (
 	"bengkelin/common"
 	s "bengkelin/features/sparepart"
-	sStruct "bengkelin/features/sparepart/structs"
+	sStruct "bengkelin/features/sparepart/structs" 
 	t "bengkelin/features/transaction"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
@@ -13,12 +13,8 @@ import (
 
 func main() {
 	var transactions tStruct.ArrTransaction
-
-	ClearConsole()
-	t.Main(&transactions)
-	return
-	var input string
 	var spareparts sStruct.ArrSparepart
+	var input string
 
 	// Menampilkan main menu
 	common.ShowMainMenu()
@@ -37,7 +33,7 @@ func main() {
 			s.Main(&spareparts)
 			common.ShowMainMenu()
 		} else if input == "3" {
-			fmt.Println("Anda berada di menu 3")
+			t.Main(&transactions)
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
