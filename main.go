@@ -2,12 +2,14 @@ package main
 
 import (
 	"bengkelin/common"
-	"bengkelin/features/sparepart"
+	s "bengkelin/features/sparepart"
+	sStruct "bengkelin/features/sparepart/structs"
 	"fmt"
 )
 
 func main() {
 	var input string
+	var spareparts sStruct.ArrSparepart
 
 	// Menampilkan main menu
 	common.ShowMainMenu()
@@ -22,7 +24,7 @@ func main() {
 		if input == "1" {
 			fmt.Println("Anda berada di menu 1")
 		} else if input == "2" {
-			sparepart.Main()
+			s.Main(&spareparts)
 			common.ShowMainMenu()
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
