@@ -9,8 +9,9 @@ func ShowSparepartMenu() {
 	fmt.Println("|---------------------------------------------------------------|")
 	fmt.Println("|                                               		|")
 	fmt.Println("| 1. Tambah Data                                  		|")
-	fmt.Println("| 2. Rubah Data                             			|")
-	fmt.Println("| 3. Hapus Data                             			|")
-	fmt.Println("| 4. Keluar                                     		|")
+	fmt.Println("| 2. Lihat Data                                  		|")
+	fmt.Println("| 3. Rubah Data                             			|")
+	fmt.Println("| 4. Hapus Data                             			|")
+	fmt.Println("| 5. Keluar                                     		|")
 	fmt.Println("O---------------------------------------------------------------O")
 }
