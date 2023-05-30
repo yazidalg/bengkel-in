@@ -16,16 +16,19 @@ func Main(spareparts *sStruct.ArrSparepart) {
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
 
-	for input != "4" {
+	for input != "5" {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
 			sparepart.AddSparepart(spareparts)
 			sparepart.ShowSparepartMenu()
 		} else if input == "2" {
-			fmt.Println("Anda berada di menu 2")
+			sparepart.ShowSparepart(spareparts)
+			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
+		} else if input == "4" {
+			fmt.Println("Anda berada di menu 4")
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
