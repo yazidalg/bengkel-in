@@ -26,11 +26,8 @@ func inputSparepart(T *arrSparepart, n *int) {
 	fmt.Println("1 baris data yang dipisahkan oleh spasi untuk mengisi-nya")
 	for T[*n].nama != "exit" {
 		*n++
-		if *n <= Nmax {
-			fmt.Scanln(&T[*n].nama, &T[*n].harga, &T[*n].stok)
-		} else {
-			fmt.Println("Sudah full")
-		}
+		fmt.Scanln(&T[*n].nama, &T[*n].harga, &T[*n].stok)
+		T[*n].id = *n
 	}
 }
 
