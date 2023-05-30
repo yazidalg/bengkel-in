@@ -2,28 +2,16 @@ package main
 
 import (
 	"bengkelin/common"
-	sparepart "bengkelin/features/sparepart"
-	transaction "bengkelin/features/transaction"
 	"fmt"
 	"os"
 	"os/exec"
 )
 
-const NMAX = 5
-
-type Sparepart struct {
-	nama string
-	id, harga, stok, sold_out int
-}
-
-type arrSparepart [NMAX]Sparepart
-
 func main() {
-	var spareparts sparepart.ArrSparepart
-	var transactions transaction.ArrTransaction
+	var transactions tStruct.ArrTransaction
 
 	ClearConsole()
-	transaction.Main(&transactions, &spareparts)
+	t.Main(&transactions)
 	return
 	var input string
 	
