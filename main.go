@@ -5,9 +5,16 @@ import (
 	s "bengkelin/features/sparepart"
 	sStruct "bengkelin/features/sparepart/structs"
 	"fmt"
+	"os"
+	"os/exec"
 )
 
 func main() {
+	var transactions tStruct.ArrTransaction
+
+	ClearConsole()
+	t.Main(&transactions)
+	return
 	var input string
 	var spareparts sStruct.ArrSparepart
 
@@ -22,7 +29,8 @@ func main() {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			fmt.Println("Anda berada di menu 1")
+			// transaction.Main()
+			common.ShowMainMenu()
 		} else if input == "2" {
 			s.Main(&spareparts)
 			common.ShowMainMenu()
@@ -38,4 +46,11 @@ func main() {
 	}
 
 	fmt.Println("Berhasil keluar aplikasi 🥳")
+}
+
+// Fungsi tambahan untuk memudahkan membersihkan console
+func ClearConsole() {
+	c := exec.Command("reset")
+	c.Stdout = os.Stdout
+	c.Run()
 }
