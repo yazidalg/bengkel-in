@@ -1,12 +1,13 @@
 package transaction
 
 import (
+	sStruct "bengkelin/features/sparepart/structs"
 	tFunc "bengkelin/features/transaction/functions"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
-func Main(transactions *tStruct.ArrTransaction) {
+func Main(transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	var input string
 	
 	// Menampilkan main menu
@@ -26,7 +27,7 @@ func Main(transactions *tStruct.ArrTransaction) {
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
 		} else if input == "4" {
-			if tFunc.CreateTransaction(transactions) {
+			if tFunc.CreateTransaction(transactions, spareparts) {
 				fmt.Println("Berhasil membuat transaksi")
 			}
 		} else {

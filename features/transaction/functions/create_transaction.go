@@ -2,11 +2,12 @@ package transaction
 
 import (
 	"bengkelin/common"
+	sStruct "bengkelin/features/sparepart/structs"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
-func CreateTransaction(transactions *tStruct.ArrTransaction) bool {
+func CreateTransaction(transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) bool {
 	var inputInt int
 	var inputString string
 
@@ -14,7 +15,13 @@ func CreateTransaction(transactions *tStruct.ArrTransaction) bool {
 	fmt.Println("O-----------------------------------------------O")
 	fmt.Println("|                 Tambah Transaksi              |")
 	fmt.Println("|-----------------------------------------------|")
-	// fmt.Println("| List Sparepart tersedia :                       |")
+	fmt.Println("| List Sparepart tersedia :                       |")
+
+	// Tampilkan Sparepart
+	for i := 0; i < spareparts.N - 1; i++ {
+		fmt.Print(spareparts.Data[i].Id, " - ", spareparts.Data[i].Name)
+		fmt.Println()
+	}
 
 	// Input Date
 	fmt.Print("| Masukan Tanggal : "); fmt.Scan(&inputInt)
