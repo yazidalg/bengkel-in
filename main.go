@@ -18,7 +18,7 @@ func main() {
 	var spareparts sStruct.ArrSparepart
 	var customers cStruct.ArrCustomer
 	var input string
-
+  
 	// Menampilkan main menu
 	common.ShowMainMenu()
 
