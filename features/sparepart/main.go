@@ -26,7 +26,7 @@ func Main(spareparts *sStruct.ArrSparepart) {
 			sparepart.ShowSparepart(spareparts)
 			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
-			fmt.Println("Anda berada di menu 3")
+			sparepart.EditSparepart(spareparts)
 		} else if input == "4" {
 			fmt.Println("Anda berada di menu 4")
 		} else {
