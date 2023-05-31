@@ -22,6 +22,10 @@ func main() {
 	// Dummy Data
 	common.CreateDummySparepart(&spareparts)
 
+	// Inject View
+	t.Main(&transactions, &spareparts)
+	return
+
 	// Menampilkan main menu
 	common.ShowMainMenu()
 
