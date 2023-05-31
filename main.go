@@ -23,8 +23,8 @@ func main() {
 	common.CreateDummySparepart(&spareparts)
 
 	// Inject View
-	t.Main(&transactions, &spareparts)
-	return
+	// t.Main(&transactions, &spareparts)
+	// return
 
 	// Menampilkan main menu
 	common.ShowMainMenu()
