@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func ShowSparepart(spareparts *s.ArrSparepart) {
+func ShowSparepart(spareparts s.ArrSparepart) {
 	for i := 0; i < spareparts.N; i++ {
 		fmt.Println(
 			"| ID:", spareparts.Data[i].Id,

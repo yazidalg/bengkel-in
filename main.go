@@ -18,7 +18,14 @@ func main() {
 	var spareparts sStruct.ArrSparepart
 	var customers cStruct.ArrCustomer
 	var input string
-  
+
+	// Dummy Data
+	common.CreateDummySparepart(&spareparts)
+
+	// Inject View
+	// t.Main(&transactions, &spareparts)
+	// return
+
 	// Menampilkan main menu
 	common.ShowMainMenu()
 
@@ -30,7 +37,7 @@ func main() {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			t.Main(&transactions)
+			t.Main(&transactions, &spareparts)
 			common.ShowMainMenu()
 		} else if input == "2" {
 			s.Main(&spareparts)

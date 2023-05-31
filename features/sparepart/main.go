@@ -23,7 +23,7 @@ func Main(spareparts *sStruct.ArrSparepart) {
 			sparepart.AddSparepart(spareparts)
 			sparepart.ShowSparepartMenu()
 		} else if input == "2" {
-			sparepart.ShowSparepart(spareparts)
+			sparepart.ShowSparepart(*spareparts)
 			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
