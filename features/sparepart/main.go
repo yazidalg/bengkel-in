@@ -1,31 +1,34 @@
-package customer
-
+package sparepart
 
 import (
-	cFunc "bengkelin/features/customer/functions"
-	cStruct "bengkelin/features/customer/structs"
+	sparepart "bengkelin/features/sparepart/functions"
+	sStruct "bengkelin/features/sparepart/structs"
 	"fmt"
 )
 
-func Main(customer *cStruct.ArrCustomer) {
+func Main(spareparts *sStruct.ArrSparepart) {
 	var input string
 
 	// Menampilkan main menu
-	cFunc.ShowCustomerMenu()
+	sparepart.ShowSparepartMenu()
 
 	// Meminta input dari user untuk memilih menu
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
-	
-	for input != "4" {
-		
+
+	for input != "5" {
+
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			fmt.Println("Anda berada di menu 1")
+			sparepart.AddSparepart(spareparts)
+			sparepart.ShowSparepartMenu()
 		} else if input == "2" {
-			fmt.Println("Anda berada di menu 2")
+			sparepart.ShowSparepart(spareparts)
+			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
+		} else if input == "4" {
+			fmt.Println("Anda berada di menu 4")
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
@@ -34,4 +37,6 @@ func Main(customer *cStruct.ArrCustomer) {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
+
+	fmt.Println("Keluar dari menu sparepart 🥳")
 }

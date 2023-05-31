@@ -1,23 +1,22 @@
-package customer
-
+package transaction
 
 import (
-	cFunc "bengkelin/features/customer/functions"
-	cStruct "bengkelin/features/customer/structs"
+	tFunc "bengkelin/features/transaction/functions"
+	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
-func Main(customer *cStruct.ArrCustomer) {
+func Main(transactions *tStruct.ArrTransaction) {
 	var input string
-
+	
 	// Menampilkan main menu
-	cFunc.ShowCustomerMenu()
+	tFunc.ShowTransactionMenu()
 
 	// Meminta input dari user untuk memilih menu
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
 	
-	for input != "4" {
+	for input != "7" {
 		
 		// Mengecek ketersediaan menu
 		if input == "1" {
@@ -26,6 +25,10 @@ func Main(customer *cStruct.ArrCustomer) {
 			fmt.Println("Anda berada di menu 2")
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
+		} else if input == "4" {
+			if tFunc.CreateTransaction(transactions) {
+				fmt.Println("Berhasil membuat transaksi")
+			}
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
