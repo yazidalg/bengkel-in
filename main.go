@@ -27,9 +27,9 @@ func main() {
 	// t.Main(&transactions, &spareparts)
 	// return
 
-	c.Main(&customers)
-			common.ShowMainMenu()
-			return
+	// c.Main(&customers)
+	// 		common.ShowMainMenu()
+	// 		return
 
 	// Menampilkan main menu
 	common.ShowMainMenu()

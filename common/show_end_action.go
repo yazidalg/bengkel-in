@@ -2,6 +2,7 @@ package common
 
 import "fmt"
 
+// Berfungsi
 func ShowEndAction() {
 	var tempInput string
 

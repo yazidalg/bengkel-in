@@ -2,6 +2,7 @@ package common
 
 import "fmt"
 
+// Ini berfungsi untuk menginput string dengan spasi
 func InputMultipleString(value *string) {
 	var inputRune rune
 	
