@@ -15,7 +15,7 @@ func CreateTransaction(transactions *tStruct.ArrTransaction, spareparts *sStruct
 	var inputString string
 	// var inputSparepart string
 
-	// n := transactions.N + 1
+	n := transactions.N + 1
 	// i := transactions.N
 	
 	fmt.Println("O-----------------------------------------------O")

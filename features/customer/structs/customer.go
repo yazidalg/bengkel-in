@@ -3,7 +3,7 @@ package customer
 const NMAX = 100
 
 type Customer struct {
-	Id, Nama, Alamat, Telp string
+	Id, Name, Address, Phone string
 }
 
 type ArrCustomer struct {

@@ -21,10 +21,15 @@ func main() {
 
 	// Dummy Data
 	common.CreateDummySparepart(&spareparts)
+	common.CreateDummyCustomer(&customers)
 
 	// Inject View
 	// t.Main(&transactions, &spareparts)
 	// return
+
+	c.Main(&customers)
+			common.ShowMainMenu()
+			return
 
 	// Menampilkan main menu
 	common.ShowMainMenu()
