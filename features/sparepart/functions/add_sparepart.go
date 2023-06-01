@@ -11,7 +11,7 @@ func AddSparepart(spareparts *s.ArrSparepart) {
 	fmt.Println("0-----------------------------------------------0")
 	fmt.Println("|		Tambah Data Sparepart		|")
 	fmt.Println("0-----------------------------------------------0")
-	if spareparts.N < s.NMAX-1 {
+	if spareparts.N < s.NMAX {
 		inputSparepart(spareparts)
 	} else {
 		common.ShowFullData()
@@ -19,14 +19,16 @@ func AddSparepart(spareparts *s.ArrSparepart) {
 }
 
 func inputSparepart(spareparts *s.ArrSparepart) {
-	spareparts.N++
+	n := spareparts.N + 1
+	i := spareparts.N
 	fmt.Print("→ Masukan Nama : ")
-	fmt.Scan(&spareparts.Data[spareparts.N-1].Name)
+	fmt.Scan(&spareparts.Data[i].Name)
 	fmt.Print("→ Masukan Harga : ")
-	fmt.Scan(&spareparts.Data[spareparts.N-1].Harga)
+	fmt.Scan(&spareparts.Data[i].Harga)
 	fmt.Print("→ Masukan Stok : ")
-	fmt.Scan(&spareparts.Data[spareparts.N-1].Stok)
-	spareparts.Data[spareparts.N].Id = spareparts.N
+	fmt.Scan(&spareparts.Data[i].Stok)
+	spareparts.Data[spareparts.N].Id = n
+	spareparts.N = n
 
 	fmt.Println("0--------------------------------------------0")
 	fmt.Println("|    Yeay! Sparepart Berhasil Ditambahkan    |")
