@@ -44,15 +44,3 @@ func Main(spareparts *sStruct.ArrSparepart) {
 
 	fmt.Println("Keluar dari menu sparepart 🥳")
 }
-
-
-panjang data : 5
-
-data 0: Ban mobil ID 1
-data 1: oli ID 3
-data 2: Spion ID 4
-data 3: Spekboard ID 5
-
-
-
-kampas rem ID 2
