@@ -26,7 +26,7 @@ func Main(spareparts *sStruct.ArrSparepart) {
 		} else if input == "2" {
 			common.ResetConsole()
 			sparepart.ShowSparepart(*spareparts)
-			common.ShowEndAction()
+			common.ShowEndAction(1)
 			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
 			sparepart.EditSparepart(spareparts)

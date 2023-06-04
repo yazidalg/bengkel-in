@@ -13,6 +13,7 @@ func EditSparepart(spareparts *sStruct.ArrSparepart) {
 	fmt.Println("=======================================================================================")
 	fmt.Println("                                    Edit Sparepart                                     ")
 	fmt.Println("=======================================================================================")
+	fmt.Println()
 	fmt.Print("Cari Sparepart Berdasarkan ID : ")
 	fmt.Scan(&inputInt)
 
@@ -39,5 +40,5 @@ func EditSparepart(spareparts *sStruct.ArrSparepart) {
 	fmt.Println("|    Yeay! Sparepart Berhasil Mengubah Data  |")
 	fmt.Println("0--------------------------------------------0")
 
-	common.ShowEndAction()
+	common.ShowEndAction(1)
 }

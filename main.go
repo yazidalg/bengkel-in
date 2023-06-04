@@ -9,8 +9,6 @@ import (
 	t "bengkelin/features/transaction"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
-	"os"
-	"os/exec"
 )
 
 func main() {
@@ -18,6 +16,9 @@ func main() {
 	var spareparts sStruct.ArrSparepart
 	var customers cStruct.ArrCustomer
 	var input string
+
+	// Reset View
+	common.ResetConsole()
 
 	// Dummy Data
 	common.CreateDummySparepart(&spareparts)
@@ -60,11 +61,4 @@ func main() {
 	}
 
 	fmt.Println("Berhasil keluar aplikasi 🥳")
-}
-
-// Fungsi tambahan untuk memudahkan membersihkan console
-func ClearConsole() {
-	c := exec.Command("reset")
-	c.Stdout = os.Stdout
-	c.Run()
 }

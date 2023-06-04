@@ -6,10 +6,6 @@ import (
 )
 
 func ShowCustomer(customer cStruct.ArrCustomer) {
-	fmt.Println("=======================================================================================")
-	fmt.Println("                                     List Customer                                     ")
-	fmt.Println("=======================================================================================")
-	fmt.Println()
 	for i := 0; i < customer.N; i++ {
 		fmt.Print(i + 1, ". ")
 		fmt.Println(

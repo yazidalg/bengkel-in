@@ -4,7 +4,7 @@ import (
 	cStruct "bengkelin/features/customer/structs"
 )
 
-func SortCustomerId(customers cStruct.ArrCustomer) cStruct.ArrCustomer {
+func SortCustomerById(customers cStruct.ArrCustomer) cStruct.ArrCustomer {
 
 	var i, j, idx_min int
 	var temp cStruct.Customer

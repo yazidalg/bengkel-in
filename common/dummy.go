@@ -16,11 +16,11 @@ func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 
 func CreateDummyCustomer(customers *cStruct.ArrCustomer) {
 	customers.N = 5
-	customers.Data[0] = cStruct.Customer{"1", "Indra Mahesa", "Bandung", "08123456789"}
-	customers.Data[1] = cStruct.Customer{"2", "Yazid Al Ghozalid", "Cikarang", "08123456789"}
-	customers.Data[2] = cStruct.Customer{"3", "Wildan Syukri Niam", "Purwokerto", "08123456789"}
-	customers.Data[3] = cStruct.Customer{"4", "Reinhard Efraim Situmeang", "Padang", "08123456789"}
-	customers.Data[4] = cStruct.Customer{"5", "Aaron Joseph", "Jakarta", "08123456789"}
+	customers.Data[0] = cStruct.Customer{"4", "Indra Mahesa", "Bandung", "08123456789"}
+	customers.Data[1] = cStruct.Customer{"3", "Yazid Al Ghozalid", "Cikarang", "08123456789"}
+	customers.Data[2] = cStruct.Customer{"2", "Wildan Syukri Niam", "Purwokerto", "08123456789"}
+	customers.Data[3] = cStruct.Customer{"5", "Reinhard Efraim Situmeang", "Padang", "08123456789"}
+	customers.Data[4] = cStruct.Customer{"1", "Aaron Joseph", "Jakarta", "08123456789"}
 
 	// Id, Nama, Alamat, Telp
 }

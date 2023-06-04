@@ -6,11 +6,10 @@ import (
 	"fmt"
 )
 
-func CreateCustomer(customers *cStruct.ArrCustomer) bool {
+func CreateCustomer(customers *cStruct.ArrCustomer) {
+	common.ResetConsole()
 
-	// var inputInt int
 	var inputString string
-	// var inputSparepart string
 
 	n := customers.N + 1
 	i := customers.N
@@ -38,12 +37,9 @@ func CreateCustomer(customers *cStruct.ArrCustomer) bool {
 	fmt.Println("=======================================================================================")
 
 	customers.N = n
-	customers.Data[i].Id = "3"
-	return true
-}
+	customers.Data[i].Id = "CS." + common.GenerateRandomString(5)
 
-func resetData(customers *cStruct.ArrCustomer, n int) {
-	customers.Data[n].Name = ""
-	customers.Data[n].Phone = ""
-	customers.Data[n].Address = ""
+	common.ResetConsole()
+	common.ShowSuccessMessage()
+	common.ShowEndAction(1)
 }

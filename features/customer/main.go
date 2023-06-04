@@ -24,29 +24,32 @@ func Main(customers *cStruct.ArrCustomer) {
 		
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			common.ResetConsole()
-			
-			if cFunc.CreateCustomer(customers) {
-				common.ResetConsole()
-				common.ShowSuccessMessage()
-				common.ShowEndAction()
-			} else {
-				common.ResetConsole()
-				common.ShowSuccessMessage()
-				common.ShowEndAction()
-			}
-			
+
+			cFunc.CreateCustomer(customers)
 			cFunc.ShowCustomerMenu()
+
 		} else if input == "2" {
+
 			common.ResetConsole()
+			fmt.Println("=======================================================================================")
+			fmt.Println("                                     List Customer                                     ")
+			fmt.Println("=======================================================================================")
+			fmt.Println()
 			cFunc.ShowCustomer(*customers)
-			common.ShowEndAction()
+
+			common.ShowEndAction(1)
 			common.ResetConsole()
+
 			cFunc.ShowCustomerMenu()
+			
 		} else if input == "3" {
-			fmt.Println("Yah menu ga tersedia nih 😩")
+
+			cFunc.EditCustomer(customers)
+			cFunc.ShowCustomerMenu()
+
 		} else if input == "4" {
-			fmt.Println("Yah menu ga tersedia nih 😩")
+			cFunc.DeleteCustomer(customers)
+			cFunc.ShowCustomerMenu()
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}

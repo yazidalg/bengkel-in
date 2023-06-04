@@ -8,15 +8,11 @@ func InputMultipleString(value *string) {
 	
 	*value = ""
 
-	for string(inputRune) != "." {
+	for string(inputRune) != "\n" {
 		fmt.Scanf("%c", &inputRune)
 
-		if string(inputRune) != "." {
-			if string(inputRune) == "\n" {
-				*value = *value + " "
-			} else {
-				*value = *value + string(inputRune)
-			}
+		if string(inputRune) != "\n" {
+			*value = *value + string(inputRune)
 		}
 	}
 }

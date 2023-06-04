@@ -10,8 +10,8 @@ func ShowCustomerMenu() {
 	fmt.Println("|                                               |")
 	fmt.Println("| 1. Tambah Pelanggan                           |")
 	fmt.Println("| 2. Lihat Pelanggan                            |")
-	fmt.Println("| 2. Edit Pelanggan                             |")
-	fmt.Println("| 2. Hapus Pelanggan                            |")
-	fmt.Println("| 4. Kembali                                    |")
+	fmt.Println("| 3. Edit Pelanggan                             |")
+	fmt.Println("| 4. Hapus Pelanggan                            |")
+	fmt.Println("| 5. Kembali                                    |")
 	fmt.Println("O-----------------------------------------------O")
 }
