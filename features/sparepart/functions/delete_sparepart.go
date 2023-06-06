@@ -32,12 +32,23 @@ func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
 				fmt.Println("ID tidak ditemukan, silahkan masukan kembali ID yang ingin dihapus : ")
 			}
 		}
+		fmt.Println("=======================================================")
+		fmt.Println("            Anda yakin ingin menghapus data?           ")
+		fmt.Println("=======================================================")
 
+		fmt.Println()
 		DetailSparepart(&sparepart.Data[i])
+		fmt.Println()
 
-		for i := i; i < sparepart.N-1; i++ {
-			sparepart.Data[i] = sparepart.Data[i+1]
+		if common.ShowConfirmationMessage() {
+			for i := i; i < sparepart.N-1; i++ {
+				sparepart.Data[i] = sparepart.Data[i+1]
+			}
+			sparepart.N--
+			common.ShowEndAction(1)
+		} else {
+			common.ResetConsole()
 		}
-		sparepart.N--
+
 	}
 }
