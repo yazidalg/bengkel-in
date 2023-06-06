@@ -45,6 +45,11 @@ func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
 				sparepart.Data[i] = sparepart.Data[i+1]
 			}
 			sparepart.N--
+
+			fmt.Println("=======================================================")
+			fmt.Println("            Yeay sparepart berhasil dihapus🥳           ")
+			fmt.Println("=======================================================")
+
 			common.ShowEndAction(1)
 		} else {
 			common.ResetConsole()
