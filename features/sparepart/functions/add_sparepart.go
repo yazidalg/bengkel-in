@@ -27,7 +27,7 @@ func inputSparepart(spareparts *s.ArrSparepart) {
 	fmt.Scan(&spareparts.Data[i].Harga)
 	fmt.Print("→ Masukan Stok : ")
 	fmt.Scan(&spareparts.Data[i].Stok)
-	spareparts.Data[spareparts.N].Id = common.GenerateRandomInt()
+	spareparts.Data[spareparts.N].Id = common.GenerateRandomString(5)
 	spareparts.N = n
 
 	fmt.Println("0--------------------------------------------0")

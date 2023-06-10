@@ -32,6 +32,10 @@ func main() {
 	// 		common.ShowMainMenu()
 	// 		return
 
+	// t.Main(customers, &transactions, &spareparts)
+	// common.ShowMainMenu()
+	// return
+
 	// Menampilkan main menu
 	common.ShowMainMenu()
 
@@ -43,7 +47,7 @@ func main() {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			t.Main(&transactions, &spareparts)
+			t.Main(customers, &transactions, &spareparts)
 			common.ShowMainMenu()
 		} else if input == "2" {
 			s.Main(&spareparts)

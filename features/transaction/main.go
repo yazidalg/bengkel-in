@@ -1,13 +1,14 @@
 package transaction
 
 import (
+	cStruct "bengkelin/features/customer/structs"
 	sStruct "bengkelin/features/sparepart/structs"
 	tFunc "bengkelin/features/transaction/functions"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
-func Main(transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
+func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	var input string
 	
 	// Menampilkan main menu
@@ -27,11 +28,12 @@ func Main(transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart
 		} else if input == "3" {
 			fmt.Println("Anda berada di menu 3")
 		} else if input == "4" {
-			if tFunc.CreateTransaction(transactions, spareparts) {
-				fmt.Println("Berhasil membuat transaksi")
-			}
-		} else {
+			tFunc.CreateTransaction(customers, transactions, spareparts)
+			tFunc.ShowTransactionMenu()
+		} else if input == "5" {
 			fmt.Println("Yah menu ga tersedia nih 😩")
+		} else if input == "6" {
+			tFunc.DeleteTransaction(transactions)
 		}
 
 		// Meminta input dari user untuk memilih menu

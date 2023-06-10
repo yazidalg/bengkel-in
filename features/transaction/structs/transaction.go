@@ -1,12 +1,16 @@
 package transaction
 
-import sStruct "bengkelin/features/sparepart/structs"
+import (
+	cStruct "bengkelin/features/customer/structs"
+	sStruct "bengkelin/features/sparepart/structs"
+)
 
 const NMAX = 100
 
 type Transaction struct {
-	Id, Note, PaymentMethod, CustomerId string
-	Date, Month, Year int
+	Id, Note, PaymentMethod string
+	Price, Date, Month, Year int
+	Customer cStruct.Customer
 	Spareparts sStruct.ArrSparepart
 }
 

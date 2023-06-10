@@ -1,34 +1,32 @@
-package sparepart
+package transaction
 
 import (
-	common "bengkelin/common"
-	sStruct "bengkelin/features/sparepart/structs"
+	"bengkelin/common"
+	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
-func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
-	common.ResetConsole()
-
+func DeleteTransaction(transcations *tStruct.ArrTransaction) {
 	var i int
-	var inputUser string
-	
+	var input string
 	i = -1
-	fmt.Println("============================================")
-	fmt.Println("              Hapus Sparepart               ")
-	fmt.Println("============================================")
-	ShowSparepart(*sparepart)
-	fmt.Println()
-	if sparepart.N == 0 {
+	fmt.Println("---------------------------------")
+	fmt.Println("         Hapus Transaction       ")
+	fmt.Println("---------------------------------")
+	fmt.Println("List ID Transaction yang ada")
+	for i := 0; i < transcations.N; i++ {
+		fmt.Println(i, transcations.Data[i].Id, ". Tanggal : ", transcations.Data[i].Date, transcations.Data[i].Month, transcations.Data[i].Year)
+	}
+	if transcations.N == 0 {
 		fmt.Println("Wah data yang ingin dihapus masih kosong 😰")
 		fmt.Println("Coba tambah data terlebih dahulu yaa 😁")
 		fmt.Println()
 		fmt.Println()
 	} else {
-		fmt.Println("Hapus sparepart berdasarkan ID : ")
-
+		fmt.Print("Masukan ID Transaction yang ingin dihapus : ")
 		for i == -1 {
-			fmt.Scan(&inputUser)
-			i = GetSparepartById(*sparepart, inputUser)
+			fmt.Scan(&input)
+			i = GetTransactionById(*transcations, input)
 
 			if i == -1 {
 				fmt.Println("ID tidak ditemukan, silahkan masukan kembali ID yang ingin dihapus : ")
@@ -39,14 +37,14 @@ func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
 		fmt.Println("=======================================================")
 
 		fmt.Println()
-		DetailSparepart(sparepart.Data[i])
+		DetailTransaction(transcations.Data[i])
 		fmt.Println()
 
 		if common.ShowConfirmationMessage() {
-			for i := i; i < sparepart.N-1; i++ {
-				sparepart.Data[i] = sparepart.Data[i+1]
+			for i := i; i < transcations.N-1; i++ {
+				transcations.Data[i] = transcations.Data[i+1]
 			}
-			sparepart.N--
+			transcations.N--
 
 			fmt.Println("=======================================================")
 			fmt.Println("            Yeay sparepart berhasil dihapus🥳           ")
@@ -56,6 +54,6 @@ func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
 		} else {
 			common.ResetConsole()
 		}
-
+		
 	}
 }

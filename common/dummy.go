@@ -7,11 +7,20 @@ import (
 
 func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 	spareparts.N = 5
-	spareparts.Data[0] = sStruct.Sparepart{"Ban Dunloop", 1, 101000, 10, 0}
-	spareparts.Data[1] = sStruct.Sparepart{"Rantai Motor", 2, 130000, 5, 0}
-	spareparts.Data[2] = sStruct.Sparepart{"Kampas Rem", 3, 25400, 42, 0}
-	spareparts.Data[3] = sStruct.Sparepart{"Oli Mesin", 4, 100000, 30, 0}
-	spareparts.Data[4] = sStruct.Sparepart{"Seal Karet", 5, 5500, 193, 0}
+	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 0}
+	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 0}
+	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 42, 0}
+	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 30, 0}
+	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 0}
+}
+
+func CreateDummyTransaction(customers *cStruct.ArrCustomer) {
+	customers.N = 5
+	customers.Data[0] = cStruct.Customer{"4", "Indra Mahesa", "Bandung", "08123456789"}
+	customers.Data[1] = cStruct.Customer{"3", "Yazid Al Ghozalid", "Cikarang", "08123456789"}
+	customers.Data[2] = cStruct.Customer{"2", "Wildan Syukri Niam", "Purwokerto", "08123456789"}
+	customers.Data[3] = cStruct.Customer{"5", "Reinhard Efraim Situmeang", "Padang", "08123456789"}
+	customers.Data[4] = cStruct.Customer{"1", "Aaron Joseph", "Jakarta", "08123456789"}
 }
 
 func CreateDummyCustomer(customers *cStruct.ArrCustomer) {
@@ -21,6 +30,4 @@ func CreateDummyCustomer(customers *cStruct.ArrCustomer) {
 	customers.Data[2] = cStruct.Customer{"2", "Wildan Syukri Niam", "Purwokerto", "08123456789"}
 	customers.Data[3] = cStruct.Customer{"5", "Reinhard Efraim Situmeang", "Padang", "08123456789"}
 	customers.Data[4] = cStruct.Customer{"1", "Aaron Joseph", "Jakarta", "08123456789"}
-
-	// Id, Nama, Alamat, Telp
 }

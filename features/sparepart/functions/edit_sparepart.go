@@ -9,22 +9,23 @@ import (
 func EditSparepart(spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 
-	var inputInt int
+	var inputString string
+
 	fmt.Println("=======================================================================================")
 	fmt.Println("                                    Edit Sparepart                                     ")
 	fmt.Println("=======================================================================================")
 	fmt.Println()
 	fmt.Print("Cari Sparepart Berdasarkan ID : ")
-	fmt.Scan(&inputInt)
+	fmt.Scan(&inputString)
 
-	var i = GetSparepartById(*spareparts, inputInt)
+	var i = GetSparepartById(*spareparts, inputString)
 
 	fmt.Println()
-	DetailSparepart(&spareparts.Data[i])
+	DetailSparepart(spareparts.Data[i])
 	fmt.Println()
 
 	if i == -1 {
-		fmt.Println("GA ADA", inputInt)
+		fmt.Println("GA ADA", inputString)
 	}
 
 	fmt.Print("→ Masukan Nama : ")
