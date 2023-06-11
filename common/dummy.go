@@ -44,6 +44,9 @@ func CreateDummyTransaction(transactions *tStruct.ArrTransaction) {
 		Spareparts: sStruct.ArrSparepart{Data: spareparts1, N: 3},
 	}
 
+	// 2023-02-01
+	// 2023-02-02
+
 	transactions.Data[1] = tStruct.Transaction{
 		Id: "RMRCX", 
 		Note: "-", 

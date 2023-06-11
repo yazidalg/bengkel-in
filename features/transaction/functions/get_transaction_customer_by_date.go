@@ -3,6 +3,7 @@ package transaction
 import (
 	cStruct "bengkelin/features/customer/structs"
 	tStruct "bengkelin/features/transaction/structs"
+	"fmt"
 )
 
 // Psuedocode
@@ -30,18 +31,23 @@ func GetTransactionCustomerByDate(
 
 	for i := 0; i < transactions.N; i++ {
 		if transactions.Data[i].Year > startDateYear && transactions.Data[i].Year < endDateYear {
+			fmt.Println("Masuk Ke -1")
 			filteredCustomers.Data[filteredCustomers.N] = transactions.Data[i].Customer
 			filteredCustomers.N++
-		} else if startDateYear == transactions.Data[i].Year && startDateMonth < transactions.Data[i].Month {
+			} else if startDateYear == transactions.Data[i].Year && startDateMonth < transactions.Data[i].Month {
+			fmt.Println("Masuk Ke -2")
 			filteredCustomers.Data[filteredCustomers.N] = transactions.Data[i].Customer
 			filteredCustomers.N++
-		} else if endDateYear == transactions.Data[i].Year && transactions.Data[i].Month < endDateMonth {
+			} else if endDateYear == transactions.Data[i].Year && transactions.Data[i].Month < endDateMonth {
+			fmt.Println("Masuk Ke -3")
 			filteredCustomers.Data[filteredCustomers.N] = transactions.Data[i].Customer
 			filteredCustomers.N++
-		} else if startDateYear == transactions.Data[i].Year && startDateMonth == transactions.Data[i].Month && startDateDay <= transactions.Data[i].Date {
+			} else if startDateYear == transactions.Data[i].Year && startDateMonth == transactions.Data[i].Month && startDateDay <= transactions.Data[i].Date {
+			fmt.Println("Masuk Ke -4")
 			filteredCustomers.Data[filteredCustomers.N] = transactions.Data[i].Customer
 			filteredCustomers.N++
-		} else if endDateYear == transactions.Data[i].Year && endDateMonth == transactions.Data[i].Month && transactions.Data[i].Date <= endDateDay {
+			} else if endDateYear == transactions.Data[i].Year && endDateMonth == transactions.Data[i].Month && transactions.Data[i].Date <= endDateDay {
+			fmt.Println("Masuk Ke -5")
 			filteredCustomers.Data[filteredCustomers.N] = transactions.Data[i].Customer
 			filteredCustomers.N++
 		}
