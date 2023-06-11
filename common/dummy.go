@@ -8,55 +8,55 @@ import (
 
 func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 	spareparts.N = 5
-	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 0}
-	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 0}
-	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 42, 0}
-	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 30, 0}
-	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 0}
+	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 10}
+	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 3}
+	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 42, 4}
+	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 30, 5}
+	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 50}
 }
 
 func CreateDummyTransaction(transactions *tStruct.ArrTransaction) {
 	transactions.N = 2
 
 	spareparts1 := [5]sStruct.Sparepart{
-		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 1, Sold_out: 0},
-		{Id: "RMRCX", Name: "Rantai Motor", Harga: 130000, Stok: 2, Sold_out: 0},
-		{Id: "KRMSS", Name: "Kampas Rem", Harga: 25400, Stok: 1, Sold_out: 0},
+		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 8, Sold_out: 0},
+		{Id: "RMRCX", Name: "Rantai Motor", Harga: 130000, Stok: 5, Sold_out: 0},
+		{Id: "KRMSS", Name: "Kampas Rem", Harga: 25400, Stok: 3, Sold_out: 0},
 	}
 
 	spareparts2 := [5]sStruct.Sparepart{
-		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 1, Sold_out: 0},
+		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 8, Sold_out: 0},
 		{Id: "SKTAF", Name: "Seal Karet", Harga: 5500, Stok: 3, Sold_out: 0},
-		{Id: "OMNFS", Name: "Oli Mesin", Harga: 100000, Stok: 1, Sold_out: 0},
+		{Id: "OMNFS", Name: "Oli Mesin", Harga: 100000, Stok: 5, Sold_out: 0},
 		{Id: "RMRCX", Name: "Rantai Motor", Harga: 130000, Stok: 2, Sold_out: 0},
 		{Id: "KRMSS", Name: "Kampas Rem", Harga: 25400, Stok: 1, Sold_out: 0},
 	}
 
 	transactions.Data[0] = tStruct.Transaction{
-		Id: "SIFHC", 
-		Note: "-", 
-		PaymentMethod: "QRIS", 
-		Price: 10000, 
-		Date: 30, 
-		Month: 01, 
-		Year: 2023,
-		Customer: cStruct.Customer{Id: "4", Name: "Indra Mahesa", Address: "Bandung", Phone: "08123456789"},
-		Spareparts: sStruct.ArrSparepart{Data: spareparts1, N: 3},
+		Id:            "SIFHC",
+		Note:          "-",
+		PaymentMethod: "QRIS",
+		Price:         10000,
+		Date:          30,
+		Month:         01,
+		Year:          2023,
+		Customer:      cStruct.Customer{Id: "4", Name: "Indra Mahesa", Address: "Bandung", Phone: "08123456789"},
+		Spareparts:    sStruct.ArrSparepart{Data: spareparts1, N: 3},
 	}
 
 	// 2023-02-01
 	// 2023-02-02
 
 	transactions.Data[1] = tStruct.Transaction{
-		Id: "RMRCX", 
-		Note: "-", 
-		PaymentMethod: "QRIS", 
-		Price: 5000, 
-		Date: 31, 
-		Month: 01, 
-		Year: 2003,
-		Customer: cStruct.Customer{Id: "3", Name: "Yazid Al Ghozalid", Address: "Cikrang", Phone: "08123456789"},
-		Spareparts: sStruct.ArrSparepart{Data: spareparts2, N: 4},
+		Id:            "RMRCX",
+		Note:          "-",
+		PaymentMethod: "QRIS",
+		Price:         5000,
+		Date:          31,
+		Month:         01,
+		Year:          2003,
+		Customer:      cStruct.Customer{Id: "3", Name: "Yazid Al Ghozalid", Address: "Cikrang", Phone: "08123456789"},
+		Spareparts:    sStruct.ArrSparepart{Data: spareparts2, N: 4},
 	}
 }
 

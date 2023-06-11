@@ -1,40 +1,76 @@
 package sparepart
 
-import s "bengkelin/features/sparepart/structs"
+import (
+	s "bengkelin/features/sparepart/structs"
+	"fmt"
+)
 
-func SortSparepartByStok(spareparts s.ArrSparepart) {
-	// var i, pass int
-	// pass = 1
-	
-	// var temp s.ArrSparepart
+func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
+	var input string
+	fmt.Println("O---------------------------------------------------------O")
+	fmt.Println("|             List Sparepart Paling Banyak Dibeli         |")
+	fmt.Println("|---------------------------------------------------------|")
+	fmt.Println("| 1. Secara Menurun                                       |")
+	fmt.Println("| 2. Secara Menaik                                        |")
+	fmt.Println("| 0. Kembali                                              |")
+	fmt.Println("O---------------------------------------------------------O")
+	fmt.Print("Masukan code : ")
+	fmt.Scan(&input)
 
-	// for pass < spareparts.N {
-	// 	temp = spareparts.Data[i].Sold_out
-	// 	i = pass
-	// 	for i > 0 && temp > spareparts.Data[i-1].Sold_out {
-	// 		spareparts.Data[i].Stok = spareparts.Data[i-1]
-	// 		i--
-	// 	}
-	// 	spareparts.Data[i].Stok = temp
-	// 	i++
-	// }
+	for input != "0" {
+		if input == "1" {
+			fmt.Println("=====================================================")
+			fmt.Println("            Mengurutkan Dari Besar Ke Kecil          ")
+			fmt.Println("=====================================================")
+			sortSparepartDescending(spareparts)
+			printSparepartSoldOut(*spareparts)
+		} else if input == "2" {
+			fmt.Println("=====================================================")
+			fmt.Println("            Mengurutkan Dari Kecil Ke Besar          ")
+			fmt.Println("=====================================================")
+			sortSparepartAscending(spareparts)
+			printSparepartSoldOut(*spareparts)
+		} else {
+			fmt.Println("Yah menu ga tersedia nih 😩")
+		}
+		fmt.Print("Masukan code : ")
+		fmt.Scan(&input)
+	}
+	fmt.Println("Berhasil keluar🥳")
 }
 
-func insertion() {
-	var temp, j int
-	arr := []int{3, 4, 2, 1, 5}
+func sortSparepartAscending(spareparts *s.ArrSparepart) {
+	var i, pass, temp int
+	pass = 1
+	for pass < spareparts.N {
+		i = pass
+		temp = spareparts.Data[i].Sold_out
+		for i > 0 && temp > spareparts.Data[i-1].Sold_out {
+			spareparts.Data[i].Sold_out = spareparts.Data[i-1].Sold_out
+			i--
+		}
+		spareparts.Data[i].Sold_out = temp
+		pass++
+	}
+}
 
-	i := 1
-	for i <= len(arr) - 1 {
-					temp = arr[i]
-					j = i
+func sortSparepartDescending(spareparts *s.ArrSparepart) {
+	var i, pass, temp int
+	pass = 1
+	for pass < spareparts.N {
+		i = pass
+		temp = spareparts.Data[i].Sold_out
+		for i > 0 && temp < spareparts.Data[i-1].Sold_out {
+			spareparts.Data[i].Sold_out = spareparts.Data[i-1].Sold_out
+			i--
+		}
+		spareparts.Data[i].Sold_out = temp
+		pass++
+	}
+}
 
-					for j > 0 && temp > arr[j - 1] {
-									arr[j] = arr[j - 1]
-									j--
-					}
-
-					arr[j] = temp
-					i++
+func printSparepartSoldOut(spareparts s.ArrSparepart) {
+	for i := 0; i < spareparts.N; i++ {
+		fmt.Println("Nama Sparepart :", spareparts.Data[i].Name, "dibeli sebanyak", spareparts.Data[i].Sold_out)
 	}
 }
