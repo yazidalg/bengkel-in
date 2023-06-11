@@ -24,7 +24,7 @@ func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, s
 	for input != "0" {
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			tFunc.ListTransaction(*transactions)
+			tFunc.ListTransaction(*transactions, *spareparts)
 			tFunc.ShowTransactionMenu()
 		} else if input == "2" {
 			tFunc.CreateTransaction(customers, transactions, spareparts)

@@ -25,6 +25,7 @@ func CreateDummyTransaction(transactions *tStruct.ArrTransaction) {
 	}
 
 	spareparts2 := [5]sStruct.Sparepart{
+		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 1, Sold_out: 0},
 		{Id: "SKTAF", Name: "Seal Karet", Harga: 5500, Stok: 3, Sold_out: 0},
 		{Id: "OMNFS", Name: "Oli Mesin", Harga: 100000, Stok: 1, Sold_out: 0},
 		{Id: "RMRCX", Name: "Rantai Motor", Harga: 130000, Stok: 2, Sold_out: 0},
