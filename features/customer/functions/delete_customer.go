@@ -28,11 +28,11 @@ func DeleteCustomer(customers *cStruct.ArrCustomer) {
 			fmt.Print("ID tidak ditemukan, silahkan masukan kembali ID : ")
 		}
 	}
-
-	fmt.Println("=======================================================================================")
-	fmt.Println("                    Apakah Anda Yakin Ingin Menghapus Customer Ini?                    ")
-	fmt.Println("=======================================================================================")
 	
+	common.ResetConsole()
+	fmt.Println("=======================================================================================")
+	fmt.Println("                     Apakah Anda Yakin Ingin Menghapus Customer Ini?                   ")
+	fmt.Println("=======================================================================================")
 	fmt.Println()
 	DetailCustomer(customers.Data[i])
 	fmt.Println()
@@ -50,7 +50,7 @@ func DeleteCustomer(customers *cStruct.ArrCustomer) {
 		fmt.Println("                               Customer Berhasil Di Hapus                              ")
 		fmt.Println("=======================================================================================")
 		common.ShowEndAction(1)
-	}	else {	
-			common.ResetConsole()
-	}
+	}	
+	
+	common.ResetConsole()
 }

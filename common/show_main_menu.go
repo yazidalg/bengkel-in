@@ -11,6 +11,6 @@ func ShowMainMenu() {
 	fmt.Println("| 1. Transaksi                                  |")
 	fmt.Println("| 2. Data Sparepart                             |")
 	fmt.Println("| 3. Data Pelanggan                             |")
-	fmt.Println("| 4. Keluar                                     |")
+	fmt.Println("| 0. Keluar                                     |")
 	fmt.Println("O-----------------------------------------------O")
 }

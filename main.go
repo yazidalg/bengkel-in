@@ -23,19 +23,9 @@ func main() {
 	// Dummy Data
 	common.CreateDummySparepart(&spareparts)
 	common.CreateDummyCustomer(&customers)
+	common.CreateDummyTransaction(&transactions)
 
 	// Inject View
-	// t.Main(&transactions, &spareparts)
-	// return
-
-	// c.Main(&customers)
-	// 		common.ShowMainMenu()
-	// 		return
-
-	// t.Main(customers, &transactions, &spareparts)
-	// common.ShowMainMenu()
-	// return
-
 	// Menampilkan main menu
 	common.ShowMainMenu()
 
@@ -43,7 +33,7 @@ func main() {
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
 
-	for input != "4" {
+	for input != "0" {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {

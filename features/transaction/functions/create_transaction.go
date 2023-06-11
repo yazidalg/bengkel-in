@@ -79,7 +79,6 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	fmt.Scan(&inputString)
 	transactions.Data[n].Note = inputString
 
-	fmt.Println()
 
 	// Input Sparepart
 	inputSpareparts(*spareparts, &carts)
@@ -95,7 +94,7 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	common.ResetConsole()
 }
 
-func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {
+func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {	
 	var inputString string
 
 	fmt.Println("List Customer Tersedia: ")
@@ -125,6 +124,12 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 	var inputString string
 
 	for inputString != "stop" {
+		common.ResetConsole()
+
+		fmt.Println("=======================================================================================")
+		fmt.Println("                                 Keranjang Sparepart                                   ")
+		fmt.Println("=======================================================================================")
+		fmt.Println()
 		fmt.Println("List Sparepart Tersedia: ")
 		fmt.Println()
 		sFunc.ShowSparepart(spareparts)
@@ -190,8 +195,5 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 				}
 			}
 		}
-	
-
-		common.ResetConsole()
 	}
 }

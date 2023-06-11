@@ -12,6 +12,6 @@ func ShowCustomerMenu() {
 	fmt.Println("| 2. Lihat Pelanggan                            |")
 	fmt.Println("| 3. Edit Pelanggan                             |")
 	fmt.Println("| 4. Hapus Pelanggan                            |")
-	fmt.Println("| 5. Kembali                                    |")
+	fmt.Println("| 0. Kembali                                    |")
 	fmt.Println("O-----------------------------------------------O")
 }

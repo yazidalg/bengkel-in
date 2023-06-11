@@ -8,6 +8,8 @@ import (
 )
 
 func Main(spareparts *sStruct.ArrSparepart) {
+	common.ResetConsole()
+	
 	var input string
 
 	// Menampilkan main menu
@@ -17,7 +19,7 @@ func Main(spareparts *sStruct.ArrSparepart) {
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
 
-	for input != "5" {
+	for input != "0" {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
@@ -42,6 +44,6 @@ func Main(spareparts *sStruct.ArrSparepart) {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
-
-	fmt.Println("Keluar dari menu sparepart 🥳")
+	
+	common.ResetConsole()
 }

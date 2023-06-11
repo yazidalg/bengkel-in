@@ -13,7 +13,7 @@ func EditCustomer(customers *cStruct.ArrCustomer) {
 	i := -1
 
 	fmt.Println("=======================================================================================")
-	fmt.Println("                                     Edit Customer                                     ")
+	fmt.Println("                                    Edit Pelanggan                                     ")
 	fmt.Println("=======================================================================================")
 	fmt.Println()
 	ShowCustomer(*customers)
@@ -30,10 +30,12 @@ func EditCustomer(customers *cStruct.ArrCustomer) {
 		}
 	}
 
+	common.ResetConsole()
+
 	fmt.Println("=======================================================================================")
-	fmt.Println("                               Customer Yang Akan Di Edit                              ")
+	fmt.Println("                              Pelanggan Yang Akan Di Edit                              ")
 	fmt.Println("=======================================================================================")
-	
+	fmt.Println()
 	DetailCustomer(customers.Data[i])
 	fmt.Println()
 	// Input Name
@@ -53,8 +55,9 @@ func EditCustomer(customers *cStruct.ArrCustomer) {
 
 	common.ResetConsole()
 	fmt.Println("=======================================================================================")
-	fmt.Println("                               Customer Berhasil Di Edit                              ")
+	fmt.Println("                              Pelanggan Berhasil Di Edit                              ")
 	fmt.Println("=======================================================================================")
 	
 	common.ShowEndAction(1)
+	common.ResetConsole()
 }

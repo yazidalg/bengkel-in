@@ -20,7 +20,7 @@ func Main(customers *cStruct.ArrCustomer) {
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
 	
-	for input != "5" {
+	for input != "0" {
 		
 		// Mengecek ketersediaan menu
 		if input == "1" {
@@ -58,4 +58,6 @@ func Main(customers *cStruct.ArrCustomer) {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
+
+	common.ResetConsole()
 }

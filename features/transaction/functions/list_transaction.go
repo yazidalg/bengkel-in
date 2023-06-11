@@ -1,11 +1,14 @@
 package transaction
 
 import (
+	"bengkelin/common"
 	tStruct "bengkelin/features/transaction/structs"
 	"fmt"
 )
 
 func ListTransaction(transactions tStruct.ArrTransaction) {
+	common.ResetConsole()
+
 	var input string
 	
 	ShowListTransactionMenu()
@@ -18,11 +21,22 @@ func ListTransaction(transactions tStruct.ArrTransaction) {
 		
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			ListTransaction(transactions)
+			common.ResetConsole()
+			fmt.Println("=======================================================================================")
+			fmt.Println("                                    List Transaksi                                     ")
+			fmt.Println("=======================================================================================")
+			fmt.Println()
+			listAllTransaction(transactions)
+			ShowListTransactionMenu()
 		} else if input == "2" {
 			fmt.Println("Anda berada di menu 2")
 		} else if input == "3" {
-			fmt.Println("Anda berada di menu 3")
+			common.ResetConsole()
+			fmt.Println("=======================================================================================")
+			fmt.Println("                       Lihat Pelanggan Berdasarkan Pembelian Periode                   ")
+			fmt.Println("=======================================================================================")
+			fmt.Println()
+			listCustomerBySparepart(transactions)
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
@@ -31,15 +45,29 @@ func ListTransaction(transactions tStruct.ArrTransaction) {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
+
+	common.ResetConsole()
+}
+
+func listCustomerBySparepart(transactions tStruct.ArrTransaction) {
+	
 }
 
 func listAllTransaction(transactions tStruct.ArrTransaction) {
 	for i := 0; i < transactions.N; i++ {
 		fmt.Print(i + 1, ". ")
-		fmt.Println("ID:", transactions.Data[i].Id)
-		fmt.Printf("- Tanggal: %s-%s-%s", transactions.Data[i].Year, transactions.Data[i].Month, transactions.Data[i].Date)
-		// fmt.Println("- Pembeli:", transactions.Data[i].Customer.Name,
-		// 	"- Telp:", transactions.Data[i].Phone,
-		// 	"- Alamat:", transactions.Data[i].Address)
+		fmt.Print("ID: ", transactions.Data[i].Id)
+		fmt.Println()
+		fmt.Printf("   Tanggal: %v-%v-%v ", transactions.Data[i].Year, transactions.Data[i].Month, transactions.Data[i].Date)
+		fmt.Println()
+		fmt.Printf("   Customer: %v ", transactions.Data[i].Customer.Name)
+		fmt.Println()
+		fmt.Printf("   Tarif: Rp. %v ", transactions.Data[i].Price)
+		fmt.Println()
+		fmt.Println()
+		fmt.Println("- - - - - - - - - - - - - - - - ")
+		fmt.Println()
 	}
+	common.ShowEndAction(1)
+	common.ResetConsole()
 }

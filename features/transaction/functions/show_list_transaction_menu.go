@@ -4,8 +4,8 @@ import "fmt"
 
 func ShowListTransactionMenu() {
 	fmt.Println("O------------------------------------------------------O")
-	fmt.Println("|         Selamat Datang Di History Transaksi         |")
-	fmt.Println("|     Pilih menu dibawah ini dengan mengetik kode	   |")
+	fmt.Println("|         Selamat Datang Di History Transaksi          |")
+	fmt.Println("|     Pilih menu dibawah ini dengan mengetik kode      |")
 	fmt.Println("|------------------------------------------------------|")
 	fmt.Println("|                                                      |")
 	fmt.Println("| 1. Lihat Semua Transaksi                             |")
