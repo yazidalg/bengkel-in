@@ -12,20 +12,28 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 	fmt.Println("|---------------------------------------------------------|")
 	fmt.Println("| 1. Secara Menurun                                       |")
 	fmt.Println("| 2. Secara Menaik                                        |")
-	fmt.Println("| 3. Kembali                                              |")
+	fmt.Println("| 0. Kembali                                              |")
 	fmt.Println("O---------------------------------------------------------O")
+	fmt.Print("Masukan code : ")
 	fmt.Scan(&input)
 
-	for input != "3" {
+	for input != "0" {
 		if input == "1" {
+			fmt.Println("=====================================================")
+			fmt.Println("            Mengurutkan Dari Besar Ke Kecil          ")
+			fmt.Println("=====================================================")
 			sortSparepartDescending(spareparts)
 			printSparepartSoldOut(*spareparts)
 		} else if input == "2" {
+			fmt.Println("=====================================================")
+			fmt.Println("            Mengurutkan Dari Kecil Ke Besar          ")
+			fmt.Println("=====================================================")
 			sortSparepartAscending(spareparts)
 			printSparepartSoldOut(*spareparts)
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}
+		fmt.Print("Masukan code : ")
 		fmt.Scan(&input)
 	}
 	fmt.Println("Berhasil keluar🥳")
