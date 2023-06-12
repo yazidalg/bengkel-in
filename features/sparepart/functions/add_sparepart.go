@@ -7,6 +7,7 @@ import (
 )
 
 func AddSparepart(spareparts *s.ArrSparepart) {
+	common.ResetConsole()
 
 	fmt.Println("0-----------------------------------------------0")
 	fmt.Println("|		Tambah Data Sparepart		|")
@@ -15,22 +16,34 @@ func AddSparepart(spareparts *s.ArrSparepart) {
 		inputSparepart(spareparts)
 	} else {
 		common.ShowFullData()
+		common.ShowEndAction(1)
+		common.ResetConsole()
 	}
 }
 
 func inputSparepart(spareparts *s.ArrSparepart) {
+	var inputString string
+	var inputInt int
 	n := spareparts.N + 1
 	i := spareparts.N
 	fmt.Print("→ Masukan Nama : ")
-	fmt.Scan(&spareparts.Data[i].Name)
+	common.InputMultipleString(&inputString)
+	spareparts.Data[i].Name = inputString
 	fmt.Print("→ Masukan Harga : ")
-	fmt.Scan(&spareparts.Data[i].Harga)
+	fmt.Scan(&inputInt)
+	spareparts.Data[i].Harga = inputInt
 	fmt.Print("→ Masukan Stok : ")
-	fmt.Scan(&spareparts.Data[i].Stok)
+	fmt.Scan(&inputInt)
+	spareparts.Data[i].Stok = inputInt
 	spareparts.Data[spareparts.N].Id = common.GenerateRandomString(5)
 	spareparts.N = n
+
+	common.ResetConsole()
 
 	fmt.Println("0--------------------------------------------0")
 	fmt.Println("|    Yeay! Sparepart Berhasil Ditambahkan    |")
 	fmt.Println("0--------------------------------------------0")
+
+	common.ShowEndAction(1)
+	common.ResetConsole()
 }
