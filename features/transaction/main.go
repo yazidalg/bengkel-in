@@ -13,14 +13,14 @@ func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, s
 	common.ResetConsole()
 
 	var input string
-	
+
 	// Menampilkan main menu
 	tFunc.ShowTransactionMenu()
 
 	// Meminta input dari user untuk memilih menu
 	fmt.Print("→ Masukan kode menu : ")
 	fmt.Scan(&input)
-	
+
 	for input != "0" {
 		// Mengecek ketersediaan menu
 		if input == "1" {
@@ -30,7 +30,8 @@ func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, s
 			tFunc.CreateTransaction(customers, transactions, spareparts)
 			tFunc.ShowTransactionMenu()
 		} else if input == "3" {
-			fmt.Println("Anda berada di menu 3")
+			tFunc.EditTransaction(transactions)
+			tFunc.ShowTransactionMenu()
 		} else if input == "4" {
 			tFunc.DeleteTransaction(transactions)
 			tFunc.ShowTransactionMenu()
