@@ -26,7 +26,7 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 			fmt.Println("            Mengurutkan Dari Besar Ke Kecil          ")
 			fmt.Println("=====================================================")
 			fmt.Println()
-			sortSparepartDescending(spareparts)
+			sortSparepartBySoldOut(spareparts, "DESC")
 			printSparepartSoldOut(*spareparts)
 			fmt.Println()
 			common.ShowEndAction(1)
@@ -36,7 +36,7 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 			fmt.Println("            Mengurutkan Dari Kecil Ke Besar          ")
 			fmt.Println("=====================================================")
 			fmt.Println()
-			sortSparepartAscending(spareparts)
+			sortSparepartBySoldOut(spareparts, "ASC")
 			printSparepartSoldOut(*spareparts)
 			fmt.Println()
 			common.ShowEndAction(1)
@@ -50,32 +50,25 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 	fmt.Println("Berhasil keluar🥳")
 }
 
-func sortSparepartAscending(spareparts *s.ArrSparepart) {
-	var i, pass, temp int
+func sortSparepartBySoldOut(spareparts *s.ArrSparepart, sort string) {
+	var i, pass int
+	var temp s.Sparepart
 	pass = 1
 	for pass < spareparts.N {
 		i = pass
-		temp = spareparts.Data[i].Sold_out
-		for i > 0 && temp > spareparts.Data[i-1].Sold_out {
-			spareparts.Data[i].Sold_out = spareparts.Data[i-1].Sold_out
-			i--
+		temp = spareparts.Data[i]
+		if sort == "ASC" {
+			for i > 0 && temp.Sold_out > spareparts.Data[i-1].Sold_out {
+				spareparts.Data[i] = spareparts.Data[i-1]
+				i--
+			}
+		} else if sort == "DESC" {
+			for i > 0 && temp.Sold_out < spareparts.Data[i-1].Sold_out {
+				spareparts.Data[i] = spareparts.Data[i-1]
+				i--
+			}
 		}
-		spareparts.Data[i].Sold_out = temp
-		pass++
-	}
-}
-
-func sortSparepartDescending(spareparts *s.ArrSparepart) {
-	var i, pass, temp int
-	pass = 1
-	for pass < spareparts.N {
-		i = pass
-		temp = spareparts.Data[i].Sold_out
-		for i > 0 && temp < spareparts.Data[i-1].Sold_out {
-			spareparts.Data[i].Sold_out = spareparts.Data[i-1].Sold_out
-			i--
-		}
-		spareparts.Data[i].Sold_out = temp
+		spareparts.Data[i] = temp
 		pass++
 	}
 }

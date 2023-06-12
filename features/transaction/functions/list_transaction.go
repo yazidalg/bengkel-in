@@ -9,9 +9,13 @@ import (
 	"fmt"
 )
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -27,7 +31,7 @@ func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.Arr
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
-			listAllTransaction(transactions)
+			ListAllTransaction(transactions)
 			ShowListTransactionMenu()
 		} else if input == "2" {
 			listCustomerByDate(transactions)
@@ -50,9 +54,13 @@ func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.Arr
 	common.ResetConsole()
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func listCustomerByDate(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 
@@ -94,7 +102,7 @@ func listCustomerByDate(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 
 	customers := GetTransactionCustomerByDate(transactions, day, month, year)
-	
+
 	fmt.Println("=======================================================================================")
 	fmt.Println("                     List Pelanggan Yang Membeli")
 	fmt.Println("=======================================================================================")
@@ -105,9 +113,13 @@ func listCustomerByDate(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func listCustomerBySparepart(transactions tStruct.ArrTransaction, spareparts sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -148,10 +160,14 @@ func listCustomerBySparepart(transactions tStruct.ArrTransaction, spareparts sSt
 	common.ResetConsole()
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
-func listAllTransaction(transactions tStruct.ArrTransaction) {
+
+*
+*/
+func ListAllTransaction(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 	fmt.Println("=======================================================================================")
 	fmt.Println("                                    List Transaksi                                     ")
@@ -168,10 +184,12 @@ func listAllTransaction(transactions tStruct.ArrTransaction) {
 		fmt.Println()
 		fmt.Printf("   Tarif: Rp. %v ", transactions.Data[i].Price)
 		fmt.Println()
+		fmt.Printf("   Metode Pembayaran: %v ", transactions.Data[i].PaymentMethod)
+		fmt.Println()
+		fmt.Printf("   Catatan: %v ", transactions.Data[i].Note)
+		fmt.Println()
 		fmt.Println()
 		fmt.Println("- - - - - - - - - - - - - - - - ")
 		fmt.Println()
 	}
-	common.ShowEndAction(1)
-	common.ResetConsole()
 }
