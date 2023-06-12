@@ -2,6 +2,13 @@ package common
 
 import "fmt"
 
+/*
+*
+
+	Dibuat oleh Yazid Al Ghozali 1302223047
+
+*
+*/
 func ShowSparepartSortMenu() {
 	fmt.Println("O---------------------------------------------------------O")
 	fmt.Println("|          Urutkan Sparepart Paling Banyak Dibeli         |")
