@@ -1,6 +1,7 @@
 package sparepart
 
 import (
+	"bengkelin/common"
 	s "bengkelin/features/sparepart/structs"
 	"fmt"
 )
@@ -17,19 +18,29 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 	fmt.Print("Masukan code : ")
 	fmt.Scan(&input)
 
+	common.ResetConsole()
+
 	for input != "0" {
 		if input == "1" {
 			fmt.Println("=====================================================")
 			fmt.Println("            Mengurutkan Dari Besar Ke Kecil          ")
 			fmt.Println("=====================================================")
+			fmt.Println()
 			sortSparepartDescending(spareparts)
 			printSparepartSoldOut(*spareparts)
+			fmt.Println()
+			common.ShowEndAction(1)
+			common.ResetConsole()
 		} else if input == "2" {
 			fmt.Println("=====================================================")
 			fmt.Println("            Mengurutkan Dari Kecil Ke Besar          ")
 			fmt.Println("=====================================================")
+			fmt.Println()
 			sortSparepartAscending(spareparts)
 			printSparepartSoldOut(*spareparts)
+			fmt.Println()
+			common.ShowEndAction(1)
+			common.ResetConsole()
 		} else {
 			fmt.Println("Yah menu ga tersedia nih 😩")
 		}

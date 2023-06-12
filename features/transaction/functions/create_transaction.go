@@ -18,8 +18,7 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	var inputInt int
 	var inputString string
 
-	n := transactions.N
-
+	var newTransaction tStruct.Transaction
 	var carts sStruct.ArrSparepart
 
 	fmt.Println("=======================================================================================")
@@ -38,8 +37,8 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 		fmt.Scan(&inputInt)
 	}
 
-	transactions.Data[n].Date = inputInt
-	transactions.Data[n].Id = common.GenerateRandomString(5)
+	newTransaction.Date = inputInt
+	newTransaction.Id = common.GenerateRandomString(5)
 
 	// Input Month
 	fmt.Print("Masukan Bulan : ")
@@ -53,45 +52,59 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 		fmt.Scan(&inputInt)
 	}
 
-	transactions.Data[n].Month = inputInt
+	newTransaction.Month = inputInt
 
 	// Input Year
 	fmt.Print("Masukan Tahun : ")
 	fmt.Scan(&inputInt)
-	transactions.Data[n].Year = inputInt
+	newTransaction.Year = inputInt
 	fmt.Println()
 	
 	// Input Customer
-	inputCustomer(customers, &transactions.Data[n].Customer)
+	inputCustomer(customers, &newTransaction.Customer)
 
 	// Input Price
 	fmt.Print("Harga Service : ")
 	fmt.Scan(&inputInt)
-	transactions.Data[n].Price = inputInt
+	newTransaction.Price = inputInt
 
 	// Input paymentMethod
 	fmt.Print("Masukan Metode Pembayaran : ")
 	fmt.Scan(&inputString)
-	transactions.Data[n].PaymentMethod = inputString
+	newTransaction.PaymentMethod = inputString
 
 	// Input paymentMethod
 	fmt.Print("Note : ")
 	fmt.Scan(&inputString)
-	transactions.Data[n].Note = inputString
+	newTransaction.Note = inputString
 
 
 	// Input Sparepart
 	inputSpareparts(*spareparts, &carts)
-	transactions.Data[n].Spareparts = carts
+	newTransaction.Spareparts = carts
 
 	// Print Receipt
-	DetailTransaction(transactions.Data[n])
+	DetailTransaction(newTransaction)
 
 	if common.ShowConfirmationMessage() {
+		transactions.Data[transactions.N] = newTransaction
 		transactions.N++
+
+		updateSparepartStock(newTransaction, spareparts)
 	}
 
 	common.ResetConsole()
+}
+
+func updateSparepartStock(transaction tStruct.Transaction, spareparts *sStruct.ArrSparepart) {
+	for i := 0; i < transaction.Spareparts.N; i++ {
+		sparepartIndex := sFunc.GetSparepartById(*spareparts, transaction.Spareparts.Data[i].Id)
+		
+		if sparepartIndex != -1 {
+			spareparts.Data[sparepartIndex].Stok -= transaction.Spareparts.Data[i].Stok
+			spareparts.Data[sparepartIndex].Sold_out += transaction.Spareparts.Data[i].Stok
+		}
+	}
 }
 
 func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {	

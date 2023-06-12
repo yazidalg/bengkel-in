@@ -12,6 +12,8 @@ func ShowSparepart(spareparts s.ArrSparepart) {
 			". ID:", spareparts.Data[i].Id,
 			"- Nama:", spareparts.Data[i].Name,
 			"- Stok:", spareparts.Data[i].Stok,
-			"- Harga: Rp.", spareparts.Data[i].Harga)
+			"- Harga: Rp.", spareparts.Data[i].Harga,
+			"- SoldOut: Rp.", spareparts.Data[i].Sold_out)
+		
 	}
 }

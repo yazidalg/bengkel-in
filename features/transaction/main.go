@@ -42,4 +42,6 @@ func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, s
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
+
+	common.ResetConsole()
 }

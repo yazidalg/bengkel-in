@@ -23,7 +23,7 @@ func main() {
 	// Dummy Data
 	common.CreateDummySparepart(&spareparts)
 	common.CreateDummyCustomer(&customers)
-	common.CreateDummyTransaction(&transactions)
+	// common.CreateDummyTransaction(&transactions)
 
 	// Inject View
 	// Menampilkan main menu

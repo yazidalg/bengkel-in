@@ -8,11 +8,11 @@ import (
 
 func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 	spareparts.N = 5
-	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 10}
-	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 3}
-	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 42, 4}
-	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 30, 5}
-	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 50}
+	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 0}
+	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 0}
+	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 42, 0}
+	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 30, 0}
+	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 0}
 }
 
 func CreateDummyTransaction(transactions *tStruct.ArrTransaction) {

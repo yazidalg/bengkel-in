@@ -29,6 +29,7 @@ func Main(spareparts *sStruct.ArrSparepart) {
 			common.ResetConsole()
 			sparepart.ShowSparepart(*spareparts)
 			common.ShowEndAction(1)
+			common.ResetConsole()
 			sparepart.ShowSparepartMenu()
 		} else if input == "3" {
 			sparepart.EditSparepart(spareparts)
