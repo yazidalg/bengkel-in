@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func DeleteSparepart(sparepart *sStruct.ArrSparepart) {
 	common.ResetConsole()
 

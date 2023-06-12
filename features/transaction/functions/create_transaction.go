@@ -10,9 +10,13 @@ import (
 	"fmt"
 )
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -60,7 +64,7 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	fmt.Scan(&inputInt)
 	newTransaction.Year = inputInt
 	fmt.Println()
-	
+
 	// Input Customer
 	inputCustomer(customers, &newTransaction.Customer)
 
@@ -78,7 +82,6 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	fmt.Print("Note : ")
 	fmt.Scan(&inputString)
 	newTransaction.Note = inputString
-
 
 	// Input Sparepart
 	inputSpareparts(*spareparts, &carts)
@@ -104,13 +107,17 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	common.ResetConsole()
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func updateSparepartStock(transaction tStruct.Transaction, spareparts *sStruct.ArrSparepart) {
 	for i := 0; i < transaction.Spareparts.N; i++ {
 		sparepartIndex := sFunc.GetSparepartById(*spareparts, transaction.Spareparts.Data[i].Id)
-		
+
 		if sparepartIndex != -1 {
 			spareparts.Data[sparepartIndex].Stok -= transaction.Spareparts.Data[i].Stok
 			spareparts.Data[sparepartIndex].Sold_out += transaction.Spareparts.Data[i].Stok
@@ -118,10 +125,14 @@ func updateSparepartStock(transaction tStruct.Transaction, spareparts *sStruct.A
 	}
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
-func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {	
+
+*
+*/
+func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {
 	var inputString string
 
 	fmt.Println("List Customer Tersedia: ")
@@ -144,9 +155,13 @@ func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {
 	*customer = customers.Data[customerIndex]
 }
 
-/**
+/*
+*
+
 	Dibuat oleh Indra Mahesa 1302220067
-**/
+
+*
+*/
 func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepart) {
 	fmt.Println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 	fmt.Println()
@@ -164,16 +179,16 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 		fmt.Println()
 		sFunc.ShowSparepart(spareparts)
 		fmt.Println()
-		
+
 		if carts.N > 0 {
 			fmt.Println("Keranjang Sparepart: ")
 			fmt.Println()
 			sFunc.ShowSparepart(*carts)
 			fmt.Println()
-			
+
 			fmt.Println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 			fmt.Println()
-			
+
 			fmt.Println("Subtotal: Rp. ", sFunc.GetTotalPrice(*carts))
 
 			fmt.Println()
@@ -193,7 +208,7 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 
 			if inputString != "stop" {
 				sparepartIndex = sFunc.GetSparepartById(spareparts, inputString)
-		
+
 				if sparepartIndex == -1 {
 					fmt.Print("ID tidak ditemukan, silahkan masukan kembali ID : ")
 				}
@@ -202,18 +217,18 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 
 		if inputString != "stop" {
 			common.ResetConsole()
-		
+
 			// Show Added Sparepart
 			fmt.Println("Sparepart Ditemukan:")
 			fmt.Println()
 			sFunc.DetailSparepart(spareparts.Data[sparepartIndex])
 			fmt.Println()
-	
+
 			if common.ShowCustomConfirmationMessage("Tekan enter untuk tambahkan sparepart atau ketik 'batal' untuk membatalkan") {
 				// Add Sparepart to cart
 				// Check if sparepart already exists then increase the stock
 				var duplicatedSparepartIndex int = sFunc.GetSparepartById(*carts, spareparts.Data[sparepartIndex].Id)
-	
+
 				if duplicatedSparepartIndex == -1 {
 
 					// Check If Stock is Available
@@ -224,7 +239,7 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 					} else {
 						newCart := spareparts.Data[sparepartIndex]
 						newCart.Stok = 1
-			
+
 						carts.Data[carts.N] = newCart
 						carts.N++
 					}

@@ -2,6 +2,9 @@ package sparepart
 
 import "fmt"
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func ShowSparepartMenu() {
 	fmt.Println("O---------------------------------------------------------------O")
 	fmt.Println("|        	Selamat Datang Di Menu Sparepart 		|")

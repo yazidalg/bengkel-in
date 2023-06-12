@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 	var input string
 	fmt.Println("O---------------------------------------------------------O")
@@ -50,6 +53,9 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 	fmt.Println("Berhasil keluar🥳")
 }
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func sortSparepartBySoldOut(spareparts *s.ArrSparepart, sort string) {
 	var i, pass int
 	var temp s.Sparepart
@@ -73,6 +79,9 @@ func sortSparepartBySoldOut(spareparts *s.ArrSparepart, sort string) {
 	}
 }
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func printSparepartSoldOut(spareparts s.ArrSparepart) {
 	for i := 0; i < spareparts.N; i++ {
 		fmt.Println("Nama Sparepart :", spareparts.Data[i].Name, "dibeli sebanyak", spareparts.Data[i].Sold_out)
