@@ -10,26 +10,31 @@ func EditSparepart(spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 
 	var inputString string
+	i := -1
 
 	fmt.Println("=======================================================================================")
 	fmt.Println("                                    Edit Sparepart                                     ")
 	fmt.Println("=======================================================================================")
 	fmt.Println()
+	ShowSparepart(*spareparts)
+	fmt.Println()
 	fmt.Print("Cari Sparepart Berdasarkan ID : ")
-	fmt.Scan(&inputString)
 
-	var i = GetSparepartById(*spareparts, inputString)
+	for i == -1 {
+		fmt.Scan(&inputString)
+		i = GetSparepartById(*spareparts, inputString)
+
+		if i == -1 {
+			fmt.Print("Sparepart tidak ditemukan. Masukan kembali ID Spearepart : ")
+		}
+	}
 
 	fmt.Println()
 	DetailSparepart(spareparts.Data[i])
 	fmt.Println()
 
-	if i == -1 {
-		fmt.Println("GA ADA", inputString)
-	}
-
 	fmt.Print("→ Masukan Nama : ")
-	fmt.Scan(&spareparts.Data[i].Name)
+	common.InputMultipleString(&spareparts.Data[i].Name)
 	fmt.Print("→ Masukan Harga : ")
 	fmt.Scan(&spareparts.Data[i].Harga)
 	fmt.Print("→ Masukan Stok : ")
@@ -42,4 +47,5 @@ func EditSparepart(spareparts *sStruct.ArrSparepart) {
 	fmt.Println("0--------------------------------------------0")
 
 	common.ShowEndAction(1)
+	common.ResetConsole()
 }

@@ -9,7 +9,7 @@ import (
 
 func Main(spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
-	
+
 	var input string
 
 	// Menampilkan main menu
@@ -27,6 +27,10 @@ func Main(spareparts *sStruct.ArrSparepart) {
 			sparepart.ShowSparepartMenu()
 		} else if input == "2" {
 			common.ResetConsole()
+			fmt.Println("=======================================================================================")
+			fmt.Println("                                    List Sparepart                                     ")
+			fmt.Println("=======================================================================================")
+			fmt.Println()
 			sparepart.ShowSparepart(*spareparts)
 			common.ShowEndAction(1)
 			common.ResetConsole()
@@ -45,6 +49,6 @@ func Main(spareparts *sStruct.ArrSparepart) {
 		fmt.Print("→ Masukan kode menu : ")
 		fmt.Scan(&input)
 	}
-	
+
 	common.ResetConsole()
 }
