@@ -8,7 +8,7 @@ import (
 
 func EditTransaction(transactions *tStruct.ArrTransaction) {
 	var input string
-
+	i := -1
 	common.ResetConsole()
 	fmt.Println("====================================================================")
 	fmt.Println("                         Edit Transaksi                             ")
@@ -17,32 +17,22 @@ func EditTransaction(transactions *tStruct.ArrTransaction) {
 	fmt.Println("                Pilih Transaksi ID yang ingin diubah                ")
 	fmt.Println()
 
-	for i := 0; i < transactions.N; i++ {
-		fmt.Println(i+1, ".", "Transaksi ID : ", transactions.Data[i].Id)
-		fmt.Printf("    Tanggal: %v-%v-%v ", transactions.Data[i].Year, transactions.Data[i].Month, transactions.Data[i].Date)
-		fmt.Println()
-		fmt.Printf("    Metode Pembayaran: %s ", transactions.Data[i].PaymentMethod)
-		fmt.Println()
-		fmt.Printf("    Harga: %d ", transactions.Data[i].Price)
-		fmt.Println()
-		fmt.Printf("    Catatan: %s ", transactions.Data[i].Note)
-		fmt.Println()
-		fmt.Printf("    Customer: %s ", transactions.Data[i].Customer.Name)
-		fmt.Println()
-	}
+	ListAllTransaction(*transactions)
 
 	fmt.Print("Ubah ID yang ingin diubah : ")
-	fmt.Scan(&input)
 
-	var i = GetTransactionById(*transactions, input)
+	for i == -1 {
+		fmt.Scan(&input)
+		i = GetTransactionById(*transactions, input)
+
+		if i == -1 {
+			fmt.Print("ID tidak ditemukan, masukan kembali ID : ")
+		}
+	}
 
 	fmt.Println()
 	DetailTransaction(transactions.Data[i])
 	fmt.Println()
-
-	if i == -1 {
-		fmt.Println("GA ADA", input)
-	}
 
 	fmt.Print("Ubah Tanggal : ")
 	fmt.Scan(&transactions.Data[i].Date)
@@ -68,15 +58,15 @@ func EditTransaction(transactions *tStruct.ArrTransaction) {
 	fmt.Scan(&transactions.Data[i].Month)
 
 	fmt.Print("Ubah Metode Pembayaran : ")
-	fmt.Scan(&transactions.Data[i].PaymentMethod)
+	common.InputMultipleString(&transactions.Data[i].PaymentMethod)
 
 	fmt.Print("Ubah Harga : ")
 	fmt.Scan(&transactions.Data[i].Price)
 
 	fmt.Print("Ubah Catatan : ")
-	fmt.Scan(&transactions.Data[i].Note)
+	common.InputMultipleString(&transactions.Data[i].Note)
 
 	fmt.Println("Berhasil Ubah Transaksi😊")
 	common.ShowEndAction(1)
-
+	common.ResetConsole()
 }

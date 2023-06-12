@@ -8,10 +8,10 @@ import (
 
 func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 	spareparts.N = 5
-	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 0}
-	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 0}
-	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 0, 0}
-	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 1, 0}
+	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 2}
+	spareparts.Data[1] = sStruct.Sparepart{"RMRCX", "Rantai Motor", 130000, 5, 1}
+	spareparts.Data[2] = sStruct.Sparepart{"KRMSS", "Kampas Rem", 25400, 0, 5}
+	spareparts.Data[3] = sStruct.Sparepart{"OMNFS", "Oli Mesin", 100000, 1, 3}
 	spareparts.Data[4] = sStruct.Sparepart{"SKTAF", "Seal Karet", 5500, 193, 0}
 }
 
