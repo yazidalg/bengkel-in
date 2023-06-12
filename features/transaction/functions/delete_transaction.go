@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func DeleteTransaction(transcations *tStruct.ArrTransaction) {
 	var i int
 	var input string

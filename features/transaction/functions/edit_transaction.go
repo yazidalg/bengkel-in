@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func EditTransaction(transactions *tStruct.ArrTransaction) {
 	var input string
 	i := -1

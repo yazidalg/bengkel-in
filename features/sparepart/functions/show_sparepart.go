@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func ShowSparepart(spareparts s.ArrSparepart) {
 	for i := 0; i < spareparts.N; i++ {
 		fmt.Println(

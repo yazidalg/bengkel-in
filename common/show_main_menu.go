@@ -2,6 +2,9 @@ package common
 
 import "fmt"
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func ShowMainMenu() {
 	fmt.Println("O-----------------------------------------------O")
 	fmt.Println("|        Motor mu rusak? Bengkelin-aja 		|")

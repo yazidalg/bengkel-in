@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Yazid Al Ganteng 1302223047
+**/
 func AddSparepart(spareparts *s.ArrSparepart) {
 	common.ResetConsole()
 
@@ -21,6 +24,9 @@ func AddSparepart(spareparts *s.ArrSparepart) {
 	}
 }
 
+/**
+	Dibuat oleh Yazid Al Ghozali 1302223047
+**/
 func inputSparepart(spareparts *s.ArrSparepart) {
 	var inputString string
 	var inputInt int
