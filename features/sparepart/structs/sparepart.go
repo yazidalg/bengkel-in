@@ -1,9 +1,9 @@
 package sparepart
 
-const NMAX = 5
+const NMAX = 100
 
 type Sparepart struct {
-	Id, Name                      string
+	Id, Name              string
 	Harga, Stok, Sold_out int
 }
 

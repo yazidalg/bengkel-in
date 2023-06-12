@@ -6,9 +6,13 @@ import (
 	tStruct "bengkelin/features/transaction/structs"
 )
 
-/**
+/*
+*
+
 	Dibuat oleh Yazid Al Ghozali 1302223047 dan Indra Mahesa 1302220067
-**/
+
+*
+*/
 func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 	spareparts.N = 5
 	spareparts.Data[0] = sStruct.Sparepart{"BDPFR", "Ban Dunloop", 101000, 10, 0}
@@ -21,13 +25,13 @@ func CreateDummySparepart(spareparts *sStruct.ArrSparepart) {
 func CreateDummyTransaction(transactions *tStruct.ArrTransaction) {
 	transactions.N = 2
 
-	spareparts1 := [5]sStruct.Sparepart{
+	spareparts1 := [100]sStruct.Sparepart{
 		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 8, Sold_out: 0},
 		{Id: "RMRCX", Name: "Rantai Motor", Harga: 130000, Stok: 5, Sold_out: 0},
 		{Id: "KRMSS", Name: "Kampas Rem", Harga: 25400, Stok: 3, Sold_out: 0},
 	}
 
-	spareparts2 := [5]sStruct.Sparepart{
+	spareparts2 := [100]sStruct.Sparepart{
 		{Id: "BDPFR", Name: "Ban Dunloop", Harga: 101000, Stok: 8, Sold_out: 0},
 		{Id: "SKTAF", Name: "Seal Karet", Harga: 5500, Stok: 3, Sold_out: 0},
 		{Id: "OMNFS", Name: "Oli Mesin", Harga: 100000, Stok: 5, Sold_out: 0},
