@@ -71,12 +71,12 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 
 	// Input paymentMethod
 	fmt.Print("Masukan Metode Pembayaran : ")
-	fmt.Scan(&inputString)
+	common.InputMultipleString(&inputString)
 	newTransaction.PaymentMethod = inputString
 
 	// Input paymentMethod
 	fmt.Print("Note : ")
-	fmt.Scan(&inputString)
+	common.InputMultipleString(&inputString)
 	newTransaction.Note = inputString
 
 

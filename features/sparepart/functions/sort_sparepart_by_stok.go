@@ -7,12 +7,14 @@ import (
 )
 
 func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
+	common.ResetConsole()
+	
 	var input string
 	fmt.Println("O---------------------------------------------------------O")
-	fmt.Println("|             List Sparepart Paling Banyak Dibeli         |")
+	fmt.Println("|          Urutkan Sparepart Paling Banyak Dibeli         |")
 	fmt.Println("|---------------------------------------------------------|")
-	fmt.Println("| 1. Secara Menurun                                       |")
-	fmt.Println("| 2. Secara Menaik                                        |")
+	fmt.Println("| 1. Pembelian Terbanyak                                  |")
+	fmt.Println("| 2. Pembelian Terdikit                                   |")
 	fmt.Println("| 0. Kembali                                              |")
 	fmt.Println("O---------------------------------------------------------O")
 	fmt.Print("Masukan code : ")
@@ -22,6 +24,7 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 
 	for input != "0" {
 		if input == "1" {
+			common.ResetConsole()
 			fmt.Println("=====================================================")
 			fmt.Println("            Mengurutkan Dari Besar Ke Kecil          ")
 			fmt.Println("=====================================================")
@@ -32,6 +35,7 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 			common.ShowEndAction(1)
 			common.ResetConsole()
 		} else if input == "2" {
+			common.ResetConsole()
 			fmt.Println("=====================================================")
 			fmt.Println("            Mengurutkan Dari Kecil Ke Besar          ")
 			fmt.Println("=====================================================")
@@ -48,6 +52,7 @@ func ListBestSellerSparepart(spareparts *s.ArrSparepart) {
 		fmt.Scan(&input)
 	}
 	fmt.Println("Berhasil keluar🥳")
+	common.ResetConsole()
 }
 
 func sortSparepartAscending(spareparts *s.ArrSparepart) {
