@@ -2,7 +2,9 @@ package common
 
 import "fmt"
 
-// Berfungsi
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ShowEndAction(repeat int) {
 	var tempInput string
 

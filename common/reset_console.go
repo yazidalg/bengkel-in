@@ -4,7 +4,10 @@ import (
 	"fmt"
 )
 
-// Berfungsi untuk membuat jarak di console agar terlihat tereset
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+	Berfungsi untuk membuat jarak di console agar terlihat tereset
+**/
 func ResetConsole() {
 	fmt.Println()
 	fmt.Println()

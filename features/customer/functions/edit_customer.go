@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func EditCustomer(customers *cStruct.ArrCustomer) {
 	common.ResetConsole()
 
@@ -23,6 +26,8 @@ func EditCustomer(customers *cStruct.ArrCustomer) {
 	
 	for i == -1 {
 		fmt.Scan(&inputString)
+		SortCustomerById(customers, "ASC")
+		ShowCustomer(*customers)
 		i = GetCustomerById(*customers, inputString)
 
 		if i == -1 {

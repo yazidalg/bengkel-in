@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func DetailCustomer(customer cStruct.Customer) {
 	fmt.Println("ID :", customer.Id)
 	fmt.Println("Nama :", customer.Name)

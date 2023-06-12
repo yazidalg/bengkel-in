@@ -2,6 +2,9 @@ package customer
 
 import "fmt"
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ShowCustomerMenu() {
 	fmt.Println("O-----------------------------------------------O")
 	fmt.Println("|       Selamat Data Di Menu Pelanggan  	|")

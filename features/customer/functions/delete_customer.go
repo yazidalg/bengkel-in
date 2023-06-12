@@ -6,6 +6,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func DeleteCustomer(customers *cStruct.ArrCustomer) {
 	common.ResetConsole()
 
@@ -22,6 +25,7 @@ func DeleteCustomer(customers *cStruct.ArrCustomer) {
 	
 	for i == -1 {
 		fmt.Scan(&inputString)
+		SortCustomerById(customers, "ASC")
 		i = GetCustomerById(*customers, inputString)
 
 		if i == -1 {

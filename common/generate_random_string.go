@@ -4,6 +4,9 @@ import "math/rand"
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func GenerateRandomString(rangeNum int) string {
 	var randomString string
 

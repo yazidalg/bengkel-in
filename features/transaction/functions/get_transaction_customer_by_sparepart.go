@@ -8,6 +8,9 @@ import (
 	tStruct "bengkelin/features/transaction/structs"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func GetTransactionCustomerBySparepart(transactions tStruct.ArrTransaction, sparepart sStruct.Sparepart) cStruct.ArrCustomer {
 	var filteredCustomers cStruct.ArrCustomer
 

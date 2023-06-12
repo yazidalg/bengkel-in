@@ -3,6 +3,7 @@ package main
 import (
 	"bengkelin/common"
 	c "bengkelin/features/customer"
+	cFunc "bengkelin/features/customer/functions"
 	cStruct "bengkelin/features/customer/structs"
 	s "bengkelin/features/sparepart"
 	sStruct "bengkelin/features/sparepart/structs"
@@ -37,6 +38,7 @@ func main() {
 
 		// Mengecek ketersediaan menu
 		if input == "1" {
+			cFunc.SortCustomerById(&customers, "ASC")
 			t.Main(customers, &transactions, &spareparts)
 			common.ShowMainMenu()
 		} else if input == "2" {

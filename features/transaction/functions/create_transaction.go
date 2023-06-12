@@ -10,8 +10,9 @@ import (
 	"fmt"
 )
 
-const NMAX = 5
-
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -94,8 +95,18 @@ func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrT
 	}
 
 	common.ResetConsole()
+	fmt.Println("=======================================================================================")
+	fmt.Println("                            Yeay, Berhasil Menambahkan Transaksi!                   ")
+	fmt.Println("=======================================================================================")
+	fmt.Println()
+
+	common.ShowEndAction(1)
+	common.ResetConsole()
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func updateSparepartStock(transaction tStruct.Transaction, spareparts *sStruct.ArrSparepart) {
 	for i := 0; i < transaction.Spareparts.N; i++ {
 		sparepartIndex := sFunc.GetSparepartById(*spareparts, transaction.Spareparts.Data[i].Id)
@@ -107,6 +118,9 @@ func updateSparepartStock(transaction tStruct.Transaction, spareparts *sStruct.A
 	}
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {	
 	var inputString string
 
@@ -130,6 +144,9 @@ func inputCustomer(customers cStruct.ArrCustomer, customer *cStruct.Customer) {
 	*customer = customers.Data[customerIndex]
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepart) {
 	fmt.Println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 	fmt.Println()
@@ -198,13 +215,27 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 				var duplicatedSparepartIndex int = sFunc.GetSparepartById(*carts, spareparts.Data[sparepartIndex].Id)
 	
 				if duplicatedSparepartIndex == -1 {
-					newCart := spareparts.Data[sparepartIndex]
-					newCart.Stok = 1
-		
-					carts.Data[carts.N] = newCart
-					carts.N++
+
+					// Check If Stock is Available
+					if spareparts.Data[sparepartIndex].Stok <= 0 {
+						common.ResetConsole()
+						fmt.Println("Stock Tidak Mencukupi!")
+						common.ShowEndAction(1)
+					} else {
+						newCart := spareparts.Data[sparepartIndex]
+						newCart.Stok = 1
+			
+						carts.Data[carts.N] = newCart
+						carts.N++
+					}
 				} else {
-					carts.Data[duplicatedSparepartIndex].Stok++
+					if (spareparts.Data[sparepartIndex].Stok - carts.Data[duplicatedSparepartIndex].Stok) <= 0 {
+						common.ResetConsole()
+						fmt.Println("Stock Tidak Mencukupi!")
+						common.ShowEndAction(1)
+					} else {
+						carts.Data[duplicatedSparepartIndex].Stok++
+					}
 				}
 			}
 		}

@@ -9,6 +9,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func Main(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 

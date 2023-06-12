@@ -9,6 +9,9 @@ import (
 	"fmt"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -47,46 +50,51 @@ func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.Arr
 	common.ResetConsole()
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func listCustomerByDate(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 
-	var startDateDay, startDateMonth, startDateYear int
-	var endDateDay, endDateMonth, endDateYear int
+	var day, month, year int
 
 	fmt.Println("=======================================================================================")
 	fmt.Println("                       Lihat Pelanggan Berdasarkan Pembelian Periode                   ")
 	fmt.Println("=======================================================================================")
 	fmt.Println()
 
-	fmt.Println("Masukan Tanggal Awal")
-	fmt.Print("Contoh format 'Y-m-d': ")
-	startDateDay, startDateMonth, startDateYear = common.InputDate()
+	// Input Date
+	fmt.Print("Masukan Tanggal : ")
+	fmt.Scan(&day)
 
-	for startDateDay == -1 || startDateMonth == -1 || startDateYear == -1 {
-		fmt.Println("Format tanggal tidak valid!")
+	for !common.CheckIfDateIsValid(day) {
+		fmt.Println("Tanggal tidak valid!")
 		fmt.Println()
-
-		fmt.Println("Masukan Tanggal Awal")
-		fmt.Print("Contoh format 'Y-m-d': ")
-		startDateDay, startDateMonth, startDateYear = common.InputDate()
+		fmt.Print("Masukan Tanggal : ")
+		fmt.Scan(&day)
 	}
 
-	fmt.Println("Masukan Tanggal Akhir")
-	fmt.Print("Contoh format 'Y-m-d': ")
-	endDateDay, endDateMonth, endDateYear = common.InputDate()
+	// Input Month
+	fmt.Print("Masukan Bulan : ")
+	fmt.Scan(&month)
 
-	for endDateDay == -1 || endDateMonth == -1 || endDateYear == -1 {
-		fmt.Println("Format tanggal tidak valid!")
+	for !common.CheckIfMonthIsValid(month) {
+		fmt.Println("Bulan tidak valid!")
 		fmt.Println()
 
-		fmt.Println("Masukan Tanggal Akhir")
-		fmt.Print("Contoh format 'Y-m-d': ")
-		endDateDay, endDateMonth, endDateYear = common.InputDate()
+		fmt.Print("Masukan Bulan : ")
+		fmt.Scan(&month)
 	}
+
+	// Input Year
+	fmt.Print("Masukan Tahun : ")
+	fmt.Scan(&year)
+	fmt.Println()
 
 	common.ResetConsole()
 
-	customers := GetTransactionCustomerByDate(transactions, startDateDay, startDateMonth, startDateYear, endDateDay, endDateMonth, endDateYear)
+	customers := GetTransactionCustomerByDate(transactions, day, month, year)
+	
 	fmt.Println("=======================================================================================")
 	fmt.Println("                     List Pelanggan Yang Membeli")
 	fmt.Println("=======================================================================================")
@@ -97,6 +105,9 @@ func listCustomerByDate(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func listCustomerBySparepart(transactions tStruct.ArrTransaction, spareparts sStruct.ArrSparepart) {
 	common.ResetConsole()
 
@@ -137,6 +148,9 @@ func listCustomerBySparepart(transactions tStruct.ArrTransaction, spareparts sSt
 	common.ResetConsole()
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func listAllTransaction(transactions tStruct.ArrTransaction) {
 	common.ResetConsole()
 	fmt.Println("=======================================================================================")

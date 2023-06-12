@@ -2,6 +2,9 @@ package transaction
 
 import "fmt"
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ShowTransactionMenu() {
 	fmt.Println("O-----------------------------------------------O")
 	fmt.Println("|      Selamat Datang Di Menu Transaksi         |")

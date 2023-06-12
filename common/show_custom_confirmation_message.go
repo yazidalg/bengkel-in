@@ -2,6 +2,9 @@ package common
 
 import "fmt"
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ShowCustomConfirmationMessage(text string) bool {
 	var inputRune rune
 	var inputString string

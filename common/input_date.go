@@ -5,6 +5,9 @@ import (
 	"strconv"
 )
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func InputDate() (day int, month int, year int) {
 	var inputDate string
 	var inputDay, inputMonth, inputYear int

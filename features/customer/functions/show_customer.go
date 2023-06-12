@@ -16,6 +16,9 @@ func ShowCustomer(customer cStruct.ArrCustomer) {
 	}
 }
 
+/**
+	Dibuat oleh Indra Mahesa 1302220067
+**/
 func ShowListCustomerPretty(customer cStruct.ArrCustomer) {
 	for i := 0; i < customer.N; i++ {
 			fmt.Print(i + 1, ". ")

@@ -35,6 +35,7 @@ func Main(customers *cStruct.ArrCustomer) {
 			fmt.Println("                                     List Customer                                     ")
 			fmt.Println("=======================================================================================")
 			fmt.Println()
+			
 			cFunc.ShowCustomer(*customers)
 
 			common.ShowEndAction(1)
