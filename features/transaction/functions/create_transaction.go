@@ -261,5 +261,7 @@ func inputSpareparts(spareparts sStruct.ArrSparepart, carts *sStruct.ArrSparepar
 				}
 			}
 		}
+
+		common.ResetConsole()
 	}
 }

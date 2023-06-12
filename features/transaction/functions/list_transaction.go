@@ -32,6 +32,8 @@ func ListTransaction(transactions tStruct.ArrTransaction, spareparts sStruct.Arr
 		// Mengecek ketersediaan menu
 		if input == "1" {
 			ListAllTransaction(transactions)
+			common.ShowEndAction(1)
+			common.ResetConsole()
 			ShowListTransactionMenu()
 		} else if input == "2" {
 			listCustomerByDate(transactions)
@@ -192,6 +194,4 @@ func ListAllTransaction(transactions tStruct.ArrTransaction) {
 		fmt.Println("- - - - - - - - - - - - - - - - ")
 		fmt.Println()
 	}
-	
-	common.ResetConsole()
 }

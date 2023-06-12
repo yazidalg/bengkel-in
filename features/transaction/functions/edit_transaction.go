@@ -32,6 +32,7 @@ func EditTransaction(transactions *tStruct.ArrTransaction) {
 			fmt.Print("ID tidak ditemukan, masukan kembali ID : ")
 		}
 	}
+	common.ResetConsole()
 
 	fmt.Println()
 	DetailTransaction(transactions.Data[i])
@@ -69,6 +70,7 @@ func EditTransaction(transactions *tStruct.ArrTransaction) {
 	fmt.Print("Ubah Catatan : ")
 	common.InputMultipleString(&transactions.Data[i].Note)
 
+	common.ResetConsole()
 	fmt.Println("Berhasil Ubah Transaksi😊")
 	common.ShowEndAction(1)
 	common.ResetConsole()
