@@ -16,92 +16,98 @@ import (
 func CreateTransaction(customers cStruct.ArrCustomer, transactions *tStruct.ArrTransaction, spareparts *sStruct.ArrSparepart) {
 	common.ResetConsole()
 
-	var inputInt int
-	var inputString string
+	if transactions.N < tStruct.NMAX {
+		var inputInt int
+		var inputString string
 
-	var newTransaction tStruct.Transaction
-	var carts sStruct.ArrSparepart
+		var newTransaction tStruct.Transaction
+		var carts sStruct.ArrSparepart
 
-	fmt.Println("=======================================================================================")
-	fmt.Println("                                    Tambah Transaksi                                   ")
-	fmt.Println("=======================================================================================")
-	fmt.Println()
-
-	// Input Date
-	fmt.Print("Masukan Tanggal : ")
-	fmt.Scan(&inputInt)
-
-	for !common.CheckIfDateIsValid(inputInt) {
-		fmt.Println("Tanggal tidak valid!")
+		fmt.Println("=======================================================================================")
+		fmt.Println("                                    Tambah Transaksi                                   ")
+		fmt.Println("=======================================================================================")
 		fmt.Println()
+
+		// Input Date
 		fmt.Print("Masukan Tanggal : ")
 		fmt.Scan(&inputInt)
-	}
 
-	newTransaction.Date = inputInt
-	newTransaction.Id = common.GenerateRandomString(5)
+		for !common.CheckIfDateIsValid(inputInt) {
+			fmt.Println("Tanggal tidak valid!")
+			fmt.Println()
+			fmt.Print("Masukan Tanggal : ")
+			fmt.Scan(&inputInt)
+		}
 
-	// Input Month
-	fmt.Print("Masukan Bulan : ")
-	fmt.Scan(&inputInt)
+		newTransaction.Date = inputInt
+		newTransaction.Id = common.GenerateRandomString(5)
 
-	for !common.CheckIfMonthIsValid(inputInt) {
-		fmt.Println("Bulan tidak valid!")
-		fmt.Println()
-
+		// Input Month
 		fmt.Print("Masukan Bulan : ")
 		fmt.Scan(&inputInt)
+
+		for !common.CheckIfMonthIsValid(inputInt) {
+			fmt.Println("Bulan tidak valid!")
+			fmt.Println()
+
+			fmt.Print("Masukan Bulan : ")
+			fmt.Scan(&inputInt)
+		}
+
+		newTransaction.Month = inputInt
+
+		// Input Year
+		fmt.Print("Masukan Tahun : ")
+		fmt.Scan(&inputInt)
+		newTransaction.Year = inputInt
+		fmt.Println()
+		
+		// Input Customer
+		inputCustomer(customers, &newTransaction.Customer)
+
+		// Input Price
+		fmt.Print("Harga Service : ")
+		fmt.Scan(&inputInt)
+		newTransaction.Price = inputInt
+
+		// Input paymentMethod
+		fmt.Print("Masukan Metode Pembayaran : ")
+		common.InputMultipleString(&inputString)
+		newTransaction.PaymentMethod = inputString
+
+		// Input paymentMethod
+		fmt.Print("Note : ")
+		common.InputMultipleString(&inputString)
+		newTransaction.Note = inputString
+
+
+		// Input Sparepart
+		inputSpareparts(*spareparts, &carts)
+		newTransaction.Spareparts = carts
+
+		// Print Receipt
+		DetailTransaction(newTransaction)
+
+		if common.ShowConfirmationMessage() {
+			transactions.Data[transactions.N] = newTransaction
+			transactions.N++
+
+			updateSparepartStock(newTransaction, spareparts)
+		}
+
+		common.ResetConsole()
+		fmt.Println("=======================================================================================")
+		fmt.Println("                            Yeay, Berhasil Menambahkan Transaksi!                   ")
+		fmt.Println("=======================================================================================")
+		fmt.Println()
+
+		common.ShowEndAction(1)
+	} else {
+		common.ShowFullData()
+		common.ShowEndAction(1)
 	}
 
-	newTransaction.Month = inputInt
-
-	// Input Year
-	fmt.Print("Masukan Tahun : ")
-	fmt.Scan(&inputInt)
-	newTransaction.Year = inputInt
-	fmt.Println()
-	
-	// Input Customer
-	inputCustomer(customers, &newTransaction.Customer)
-
-	// Input Price
-	fmt.Print("Harga Service : ")
-	fmt.Scan(&inputInt)
-	newTransaction.Price = inputInt
-
-	// Input paymentMethod
-	fmt.Print("Masukan Metode Pembayaran : ")
-	common.InputMultipleString(&inputString)
-	newTransaction.PaymentMethod = inputString
-
-	// Input paymentMethod
-	fmt.Print("Note : ")
-	common.InputMultipleString(&inputString)
-	newTransaction.Note = inputString
-
-
-	// Input Sparepart
-	inputSpareparts(*spareparts, &carts)
-	newTransaction.Spareparts = carts
-
-	// Print Receipt
-	DetailTransaction(newTransaction)
-
-	if common.ShowConfirmationMessage() {
-		transactions.Data[transactions.N] = newTransaction
-		transactions.N++
-
-		updateSparepartStock(newTransaction, spareparts)
-	}
-
-	common.ResetConsole()
-	fmt.Println("=======================================================================================")
-	fmt.Println("                            Yeay, Berhasil Menambahkan Transaksi!                   ")
-	fmt.Println("=======================================================================================")
-	fmt.Println()
-
-	common.ShowEndAction(1)
-	common.ResetConsole()
+	common.ResetConsole()	
 }
 
 /**
