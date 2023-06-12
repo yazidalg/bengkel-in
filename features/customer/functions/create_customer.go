@@ -41,7 +41,7 @@ func CreateCustomer(customers *cStruct.ArrCustomer) {
 		fmt.Println("=======================================================================================")
 
 		customers.N = n
-		customers.Data[i].Id = "CS." + common.GenerateRandomString(5)
+		customers.Data[i].Id = common.GenerateRandomString(5)
 
 		common.ResetConsole()
 		common.ShowSuccessMessage()

@@ -9,10 +9,14 @@ import (
 **/
 func GetTransactionById(transactions sTrancasction.ArrTransaction, id string) int {
 	index := -1
-	for i := 0; i < transactions.N; i++ {
+	i := 0
+
+	for i < transactions.N && index == -1 {
 		if id == transactions.Data[i].Id {
 			index = i
 		}
+		i++
 	}
+	
 	return index
 }

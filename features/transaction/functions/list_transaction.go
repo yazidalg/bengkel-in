@@ -192,4 +192,6 @@ func ListAllTransaction(transactions tStruct.ArrTransaction) {
 		fmt.Println("- - - - - - - - - - - - - - - - ")
 		fmt.Println()
 	}
+	
+	common.ResetConsole()
 }

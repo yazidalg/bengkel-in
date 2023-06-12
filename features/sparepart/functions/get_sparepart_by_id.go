@@ -7,10 +7,14 @@ import s "bengkelin/features/sparepart/structs"
 **/
 func GetSparepartById(spareparts s.ArrSparepart, id string) int {
 	index := -1
-	for i := 0; i < spareparts.N; i++ {
+	i := 0
+
+	for i < spareparts.N && index == -1 {
 		if id == spareparts.Data[i].Id {
 			index = i
 		}
+
+		i++
 	}
 	return index
 }
